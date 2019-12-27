@@ -4,10 +4,15 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.HomeView">
+             x:Class="XCMDEMO.Views.HomeView"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             xmlns:local="clr-namespace:XCMDEMO">
+    <ContentPage.BindingContext>
+        <vm:HomeViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamrin.Forms!"
+            <Label Text="{Binding TestText}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>

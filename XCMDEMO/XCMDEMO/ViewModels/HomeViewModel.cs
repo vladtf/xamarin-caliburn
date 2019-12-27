@@ -13,6 +13,7 @@ namespace XCMDEMO.ViewModels
         public HomeViewModel()
         {
             MainText = "Hello World!";
+            TestText = "Not Hello!";
         }
 
         public string MainText
@@ -34,5 +35,15 @@ namespace XCMDEMO.ViewModels
             }
             return false;
         }
+
+
+        private string _text;
+
+        public string TestText
+        {
+            get { return _text; }
+            set { Set(ref _text, value); }
+        }
+
     }
 }
