@@ -1,19 +1,25 @@
-﻿using Caliburn.Micro;
+﻿using Acr.UserDialogs;
+using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
 
+using Xamarin.Forms;
+using XCMDEMO.Views;
+
 namespace XCMDEMO.ViewModels
 {
-    public class HomeViewModel : Screen
+    public class HomeViewModel : Conductor<object>
     {
         private string _mainText;
+        private string _text;
+        private IUserDialogs _userDialogs = (IUserDialogs)IoC.GetInstance(typeof(IUserDialogs), "dialogs");
 
         public HomeViewModel()
         {
             MainText = "Hello World!";
-            TestText = "Not Hello!";
+            TestText = "Not Hello1!";
         }
 
         public string MainText
@@ -37,12 +43,16 @@ namespace XCMDEMO.ViewModels
         }
 
 
-        private string _text;
-
         public string TestText
         {
             get { return _text; }
             set { Set(ref _text, value); }
+        }
+
+
+        public async void Work()
+        {
+            var result = await App.Current.MainPage.DisplayAlert("Button Clicked", "Press Ok", "Ok", "Cancel");
         }
 
     }

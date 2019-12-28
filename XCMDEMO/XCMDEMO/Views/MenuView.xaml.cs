@@ -10,16 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace XCMDEMO.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeView : ContentPage
+    public partial class MenuView : ContentPage
     {
-        public HomeView()
+        public MenuView()
         {
             InitializeComponent();
-        }
-
-        private async void Sandbox_Clicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Alert", "You have been alerted", "OK");
         }
     }
 }

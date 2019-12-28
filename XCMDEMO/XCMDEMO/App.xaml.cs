@@ -1,4 +1,5 @@
-﻿using Caliburn.Micro;
+﻿using Acr.UserDialogs;
+using Caliburn.Micro;
 using Caliburn.Micro.Xamarin.Forms;
 using System;
 using Xamarin.Forms;
@@ -17,12 +18,16 @@ namespace XCMDEMO
 
             // TODO: Register additional viewmodels and services
             container
-                .PerRequest<HomeViewModel>();
+                .Singleton<IEventAggregator, EventAggregator>()
+                .PerRequest<HomeViewModel>()
+                .PerRequest<MenuViewModel>();
+
 
             Initialize();
 
             DisplayRootViewFor<HomeViewModel>();
         }
+
 
         protected override void PrepareViewFirst(NavigationPage navigationPage)
         {

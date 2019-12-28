@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XCMDEMO.Views
+namespace XCMDEMO.ViewModels
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class HomeView : ContentPage
+    public partial class SandBoxViewModel : ContentView
     {
-        public HomeView()
+        public SandBoxViewModel()
         {
             InitializeComponent();
-        }
-
-        private async void Sandbox_Clicked(object sender, EventArgs e)
-        {
-            await DisplayAlert("Alert", "You have been alerted", "OK");
         }
     }
 }

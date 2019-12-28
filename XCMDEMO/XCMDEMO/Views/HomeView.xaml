@@ -6,15 +6,38 @@
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.HomeView"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             xmlns:cal="http://www.caliburnproject.org"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              xmlns:local="clr-namespace:XCMDEMO">
+
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Home" Order="Primary" Priority="0"/>
+        <ToolbarItem Text="Work" Order="Primary" Priority="1"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding TestText}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Padding="5" Margin="5">
+            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
+                <Label Text="{Binding TestText}"/>
+            </StackLayout>
+
+            <Grid VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="Sandbox" Clicked="Sandbox_Clicked"
+                        Text="SandBox" Grid.Column="0"/>
+                <Button x:Name="Work" Text="Work" Grid.Column="1"
+                        cm:Message.Attach="[Event Clicked] = [Action Work]"/>
+            </Grid>
+
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <ScrollView/>
+            </StackLayout>
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
