@@ -4,10 +4,6 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.SandBoxView">
-  <ContentView.Content>
-      <StackLayout>
-          <Label Text="Hello Xamarin.Forms!" />
-      </StackLayout>
-  </ContentView.Content>
+             x:Class="XCMDEMO.Views.SandBoxView" Padding="5">
+    <Button BackgroundColor="Green"/>
 </ContentView>

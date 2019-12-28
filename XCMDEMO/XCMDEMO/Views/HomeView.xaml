@@ -6,22 +6,17 @@
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.HomeView"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
-             xmlns:cal="http://www.caliburnproject.org"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
-             xmlns:local="clr-namespace:XCMDEMO">
+             xmlns:local="clr-namespace:XCMDEMO"
+             xmlns:v="clr-namespace:XCMDEMO.Views">
 
     <ContentPage.BindingContext>
         <vm:HomeViewModel/>
     </ContentPage.BindingContext>
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Home" Order="Primary" Priority="0"/>
-        <ToolbarItem Text="Work" Order="Primary" Priority="1"/>
-    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <StackLayout Padding="5" Margin="5">
-            <StackLayout Orientation="Horizontal" VerticalOptions="Start">
-                <Label Text="{Binding TestText}"/>
-            </StackLayout>
+            <Label Text="{Binding TestText}"/>
 
             <Grid VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
@@ -35,7 +30,7 @@
             </Grid>
 
             <StackLayout VerticalOptions="CenterAndExpand">
-                <ScrollView/>
+                <v:SandBoxView/>
             </StackLayout>
 
         </StackLayout>

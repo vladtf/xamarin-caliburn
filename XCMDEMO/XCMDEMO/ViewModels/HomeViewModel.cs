@@ -4,22 +4,21 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Text;
-
 using Xamarin.Forms;
-using XCMDEMO.Views;
 
 namespace XCMDEMO.ViewModels
 {
-    public class HomeViewModel : Conductor<object>
+    public class HomeViewModel : Conductor<SandBoxViewModel>.Collection.OneActive
     {
         private string _mainText;
         private string _text;
-        private IUserDialogs _userDialogs = (IUserDialogs)IoC.GetInstance(typeof(IUserDialogs), "dialogs");
-
+        public SandBoxViewModel SandBox;
         public HomeViewModel()
         {
             MainText = "Hello World!";
             TestText = "Not Hello1!";
+
+            SandBox = new SandBoxViewModel();
         }
 
         public string MainText
@@ -50,9 +49,12 @@ namespace XCMDEMO.ViewModels
         }
 
 
-        public async void Work()
+        public void Work()
         {
-            var result = await App.Current.MainPage.DisplayAlert("Button Clicked", "Press Ok", "Ok", "Cancel");
+            //var result = await App.Current.MainPage.DisplayAlert("Button Clicked", "Press Ok", "Ok", "Cancel");
+            
+            ActivateItem(SandBox);
+            //Console.WriteLine(ActiveItem);
         }
 
     }

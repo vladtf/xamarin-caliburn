@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace XCMDEMO.ViewModels
+namespace XCMDEMO.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SandBoxViewModel : ContentView
+    public partial class WorkView : ContentView
     {
-        public SandBoxViewModel()
+        public WorkView()
         {
             InitializeComponent();
         }

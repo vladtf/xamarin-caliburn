@@ -16,14 +16,18 @@ namespace XCMDEMO
         {
             this.container = container;
 
+
+            Initialize();
+
+
+
             // TODO: Register additional viewmodels and services
             container
                 .Singleton<IEventAggregator, EventAggregator>()
-                .PerRequest<HomeViewModel>()
-                .PerRequest<MenuViewModel>();
-
-
-            Initialize();
+                .Singleton<HomeViewModel>()
+                .Singleton<SandBoxViewModel>()
+                .Singleton<WorkViewModel>()
+                .Singleton<MenuViewModel>();
 
             DisplayRootViewFor<HomeViewModel>();
         }
