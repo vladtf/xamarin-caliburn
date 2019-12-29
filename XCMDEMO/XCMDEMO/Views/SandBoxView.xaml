@@ -5,5 +5,5 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.SandBoxView" Padding="5">
-    <Button BackgroundColor="Green" x:Name="mysearch" />
+    <Button BackgroundColor="Green" />
 </ContentView>

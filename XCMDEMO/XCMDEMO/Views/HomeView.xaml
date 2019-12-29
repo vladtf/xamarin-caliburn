@@ -30,7 +30,7 @@
             </Grid>
 
             <StackLayout VerticalOptions="CenterAndExpand">
-                <ContentView cm:View.Model="{Binding SandBox}" />
+                <v:SandBoxView/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
