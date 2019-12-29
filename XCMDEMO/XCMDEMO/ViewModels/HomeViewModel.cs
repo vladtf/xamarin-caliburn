@@ -1,10 +1,5 @@
-﻿using Acr.UserDialogs;
-using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
+﻿using Caliburn.Micro;
 using System.Runtime.CompilerServices;
-using System.Text;
-using Xamarin.Forms;
 
 namespace XCMDEMO.ViewModels
 {
@@ -13,12 +8,13 @@ namespace XCMDEMO.ViewModels
         private string _mainText;
         private string _text;
         public SandBoxViewModel SandBox;
+
         public HomeViewModel()
         {
             MainText = "Hello World!";
             TestText = "Not Hello1!";
 
-            SandBox = new SandBoxViewModel();
+            SandBox = (SandBoxViewModel)IoC.GetInstance(typeof(SandBoxViewModel), null);
         }
 
         public string MainText
@@ -41,21 +37,18 @@ namespace XCMDEMO.ViewModels
             return false;
         }
 
-
         public string TestText
         {
             get { return _text; }
             set { Set(ref _text, value); }
         }
 
-
         public void Work()
         {
             //var result = await App.Current.MainPage.DisplayAlert("Button Clicked", "Press Ok", "Ok", "Cancel");
-            
+
             ActivateItem(SandBox);
             //Console.WriteLine(ActiveItem);
         }
-
     }
 }

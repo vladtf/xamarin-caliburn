@@ -1,7 +1,4 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace XCMDEMO.ViewModels
 {
@@ -9,7 +6,6 @@ namespace XCMDEMO.ViewModels
     {
         public SandBoxViewModel()
         {
-
         }
     }
 }

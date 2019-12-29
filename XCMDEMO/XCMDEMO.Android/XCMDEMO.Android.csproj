@@ -53,6 +53,9 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Autofac">
+      <Version>4.9.4</Version>
+    </PackageReference>
     <PackageReference Include="Caliburn.Micro.Xamarin.Forms">
       <Version>4.0.0-alpha.1</Version>
     </PackageReference>

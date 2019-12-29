@@ -11,28 +11,27 @@
              xmlns:v="clr-namespace:XCMDEMO.Views">
 
     <ContentPage.BindingContext>
-        <vm:HomeViewModel/>
+        <vm:HomeViewModel />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
         <StackLayout Padding="5" Margin="5">
-            <Label Text="{Binding TestText}"/>
+            <Label Text="{Binding TestText}" />
 
             <Grid VerticalOptions="Start">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Button x:Name="Sandbox" Clicked="Sandbox_Clicked"
-                        Text="SandBox" Grid.Column="0"/>
+                        Text="SandBox" Grid.Column="0" />
                 <Button x:Name="Work" Text="Work" Grid.Column="1"
-                        cm:Message.Attach="[Event Clicked] = [Action Work]"/>
+                        cm:Message.Attach="[Event Clicked] = [Action Work]" />
             </Grid>
 
             <StackLayout VerticalOptions="CenterAndExpand">
-                <v:SandBoxView/>
+                <ContentView cm:View.Model="{Binding SandBox}" />
             </StackLayout>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

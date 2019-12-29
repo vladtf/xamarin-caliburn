@@ -1,27 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
+﻿using Android.App;
 using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using Autofac;
 using Caliburn.Micro;
-using XCMDEMO.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Reflection;
 
 namespace XCMDEMO.Droid
 {
     [Application]
     public class Application : CaliburnApplication
     {
-        private SimpleContainer _container;
+        private IContainer _container;
 
-        public Application(IntPtr javaReference, JniHandleOwnership transfer)
-              : base(javaReference, transfer)
+        public Application(IntPtr javaReference, JniHandleOwnership transfer) : base(javaReference, transfer)
         {
         }
 
@@ -34,43 +26,74 @@ namespace XCMDEMO.Droid
 
         protected override void Configure()
         {
-            _container = new SimpleContainer();
+            base.Configure();
 
-            // make the container available for resolution
-            _container.Instance(_container);
+            ContainerBuilder builder = new ContainerBuilder();
+            builder.RegisterModule<XCMDEMO.Module>();
 
-            // CRITICAL! make sure our Xamarin.Forms App 
-            // can only be initilized once!
-            _container.Singleton<App>();
-
-            // TODO: Register any Platform-Specific abstractions here
+            _container = builder.Build();
         }
 
         protected override IEnumerable<Assembly> SelectAssemblies()
         {
-            // Get a list of all assemblies that will be used
-            // by the IoC container
-            return new[]
-            {
-                GetType().Assembly,
-                typeof (HomeViewModel).Assembly
-            };
+            return new[] { GetType().Assembly, typeof(XCMDEMO.Module).Assembly };
         }
 
         protected override void BuildUp(object instance)
         {
-            _container.BuildUp(instance);
+            _container.InjectProperties(instance);
         }
 
         protected override IEnumerable<object> GetAllInstances(Type service)
         {
-            return _container.GetAllInstances(service);
+            var enumerableOfServiceType = typeof(IEnumerable<>).MakeGenericType(service);
+            return (IEnumerable<object>)_container.Resolve(enumerableOfServiceType);
         }
 
         protected override object GetInstance(Type service, string key)
         {
-            return _container.GetInstance(service, key);
+            return key == null ? _container.Resolve(service) : _container.ResolveKeyed(key, service);
         }
-    }
 
+        //protected override void Configure()
+        //{
+        //    _container = new SimpleContainer();
+
+        //    // make the container available for resolution
+        //    _container.Instance(_container);
+
+        //    // CRITICAL! make sure our Xamarin.Forms App
+        //    // can only be initilized once!
+        //    _container.Singleton<App>();
+
+        //    // TODO: Register any Platform-Specific abstractions here
+        //}
+
+
+        //protected override IEnumerable<Assembly> SelectAssemblies()
+        //{
+        //    // Get a list of all assemblies that will be used
+        //    // by the IoC container
+        //    return new[]
+        //    {
+        //        GetType().Assembly,
+        //        typeof (HomeViewModel).Assembly
+        //    };
+        //}
+
+        //protected override void BuildUp(object instance)
+        //{
+        //    _container.BuildUp(instance);
+        //}
+
+        //protected override IEnumerable<object> GetAllInstances(Type service)
+        //{
+        //    return _container.GetAllInstances(service);
+        //}
+
+        //protected override object GetInstance(Type service, string key)
+        //{
+        //    return _container.GetInstance(service, key);
+        //}
+    }
 }
