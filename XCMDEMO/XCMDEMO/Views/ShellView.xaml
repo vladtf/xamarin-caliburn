@@ -3,17 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              mc:Ignorable="d"
-             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              x:Class="XCMDEMO.Views.ShellView"
-            xmlns:Views="clr-namespace:XCMDEMO.Views">
-  <!--Pages can be added as references or inline-->
-    <ContentPage Title="Tab 1" >
-        <ContentPage.Content>
-            <StackLayout>
-            </StackLayout>
-        </ContentPage.Content>
-    </ContentPage>
-  <ContentPage Title="Tab 2" />
-  <ContentPage Title="Tab 3" />
+            ItemsSource="{Binding Items}"
+            SelectedItem="{Binding ActiveItem}"
+            >
+
+    <TabbedPage.ItemTemplate>
+        <DataTemplate>
+            <ContentPage Title="{Binding DisplayName}" cal:View.Model="{Binding}"/>
+        </DataTemplate>
+    </TabbedPage.ItemTemplate>
 </TabbedPage>

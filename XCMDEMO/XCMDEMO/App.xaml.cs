@@ -6,14 +6,10 @@ namespace XCMDEMO
 {
     public partial class App : FormsApplication
     {
-        private readonly SimpleContainer _simpleContainer;
 
-        public App(SimpleContainer simpleContainer)
+        public App(ShellViewModel shell)
         {
-
-            _simpleContainer = simpleContainer;
-
-            Initialize();
+            InitializeComponent();
 
             DisplayRootViewFor<ShellViewModel>();
         }

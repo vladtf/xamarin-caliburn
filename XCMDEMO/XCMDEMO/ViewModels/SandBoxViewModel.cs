@@ -6,6 +6,9 @@ namespace XCMDEMO.ViewModels
     {
         public SandBoxViewModel()
         {
+
         }
+
+        public string DisplayName { get; set; } = "SandBox";
     }
 }

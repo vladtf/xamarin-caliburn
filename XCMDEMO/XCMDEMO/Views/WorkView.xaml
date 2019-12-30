@@ -6,7 +6,8 @@
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.WorkView">
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="CenterAndExpand">
             <Label Text="Hello Xamarin.Forms!" />
         </StackLayout>
     </ContentView.Content>
