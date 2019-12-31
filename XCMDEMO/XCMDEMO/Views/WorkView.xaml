@@ -8,14 +8,14 @@
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
 
     <ContentView.BindingContext>
-        <vm:WorkViewModel/>
+        <vm:WorkViewModel />
     </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand">
             <Label Text="Hello Xamarin.Forms!" />
-            <Entry Placeholder="Type here !" Text="{Binding Text}"/>
-            <Entry Placeholder="to display here" Text="{Binding Text}"/>
+            <Entry Placeholder="Type here !" Text="{Binding Text}" />
+            <Entry Placeholder="to display here" Text="{Binding Text}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

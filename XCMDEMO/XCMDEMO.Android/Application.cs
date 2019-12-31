@@ -69,7 +69,6 @@ namespace XCMDEMO.Droid
         //    // TODO: Register any Platform-Specific abstractions here
         //}
 
-
         //protected override IEnumerable<Assembly> SelectAssemblies()
         //{
         //    // Get a list of all assemblies that will be used

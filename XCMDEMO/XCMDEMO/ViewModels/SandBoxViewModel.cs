@@ -1,5 +1,5 @@
 ﻿using Caliburn.Micro;
-using System;
+using XCMDEMO.Helpers;
 
 namespace XCMDEMO.ViewModels
 {
@@ -7,10 +7,10 @@ namespace XCMDEMO.ViewModels
     {
         public SandBoxViewModel()
         {
+            DisplayName = "SandBox";
 
+            var result = SQLDataAcces.GetPeople();
         }
-
-        public string DisplayName { get; set; } = "SandBox";
 
         public async void ButtonClick(object args)
         {

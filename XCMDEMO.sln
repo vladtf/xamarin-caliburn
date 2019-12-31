@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCMDEMO.Android", "XCMDEMO\XCMDEMO.Android\XCMDEMO.Android.csproj", "{94D8CF27-A752-4A2E-B1D9-49E06DC26485}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XCMDEMO", "XCMDEMO\XCMDEMO\XCMDEMO.csproj", "{000B7903-B081-42B2-A7ED-45F15EF64FFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XCMDEMO", "XCMDEMO\XCMDEMO\XCMDEMO.csproj", "{000B7903-B081-42B2-A7ED-45F15EF64FFE}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "VTFData", "VTFData\VTFData.sqlproj", "{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,6 +27,12 @@ Global
 		{000B7903-B081-42B2-A7ED-45F15EF64FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{000B7903-B081-42B2-A7ED-45F15EF64FFE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{000B7903-B081-42B2-A7ED-45F15EF64FFE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08FFBDE8-49A7-4DD3-B8DE-53901402E54C}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

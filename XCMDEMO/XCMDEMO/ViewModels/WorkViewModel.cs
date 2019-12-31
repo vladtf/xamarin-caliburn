@@ -6,11 +6,8 @@ namespace XCMDEMO.ViewModels
     {
         public WorkViewModel()
         {
-
+            DisplayName = "Work";
         }
-
-        public string DisplayName { get; set; } = "Work";
-
 
         private string _text;
 
@@ -19,6 +16,5 @@ namespace XCMDEMO.ViewModels
             get { return _text; }
             set { Set(ref _text, value); }
         }
-
     }
 }
