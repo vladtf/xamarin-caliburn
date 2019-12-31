@@ -4,6 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              x:Class="XCMDEMO.Views.SandBoxView" Padding="5">
-    <Button BackgroundColor="Green" />
+    <StackLayout>
+        <Button BackgroundColor="Green" x:Name="FullSyntax">
+            <Button.Triggers>
+                <EventTrigger Event="Clicked">
+                    <cm:ActionMessage MethodName="ButtonClick" AssociatedObject="{x:Reference FullSyntax}"/>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button BackgroundColor="Red" cm:Message.Attach="[Event Clicked] = [Action ButtonClick($eventArgs)]"/>
+        <Button BackgroundColor="Pink" cm:Message.Attach="[Event Clicked] = [Action ButtonClick($eventArgs)]"/>
+    </StackLayout>
 </ContentView>

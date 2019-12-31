@@ -6,9 +6,9 @@
             xmlns:cal="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.ShellView"
+            xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
             ItemsSource="{Binding Items}"
-            SelectedItem="{Binding ActiveItem}"
-            >
+            SelectedItem="{Binding ActiveItem}">
 
     <TabbedPage.ItemTemplate>
         <DataTemplate>

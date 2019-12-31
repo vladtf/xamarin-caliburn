@@ -4,11 +4,18 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.WorkView">
+             x:Class="XCMDEMO.Views.WorkView"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+
+    <ContentView.BindingContext>
+        <vm:WorkViewModel/>
+    </ContentView.BindingContext>
     <ContentView.Content>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand">
             <Label Text="Hello Xamarin.Forms!" />
+            <Entry Placeholder="Type here !" Text="{Binding Text}"/>
+            <Entry Placeholder="to display here" Text="{Binding Text}"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
