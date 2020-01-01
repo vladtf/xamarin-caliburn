@@ -2,12 +2,13 @@
 
 namespace XCMDEMO.ViewModels
 {
-    public class WorkViewModel : Screen
+    public class WorkViewModel : Screen, IChildViewModel
     {
         public WorkViewModel()
         {
-            DisplayName = "Work";
         }
+
+        public string DisplayName { get; set; } = "Work";
 
         private string _text;
 

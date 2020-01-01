@@ -5,13 +5,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
-             xmlns:i="Int"
              x:Class="XCMDEMO.Views.SandBoxView" Padding="5">
     <StackLayout>
         <Button BackgroundColor="Green" x:Name="FullSyntax">
         </Button>
 
-        <Button BackgroundColor="Red" cm:Message.Attach="[Event Clicked] = [Action ButtonClick($eventArgs)]" />
-        <Button BackgroundColor="Pink" cm:Message.Attach="[Event Clicked] = [Action ButtonClick($eventArgs)]" />
+        <Button BackgroundColor="Red" cm:Message.Attach="[Event Clicked] = [ButtonClick($this)]" />
+        <Button BackgroundColor="Pink" cm:Message.Attach="[Event Clicked] = [ButtonClick($this)]" />
     </StackLayout>
 </ContentView>
