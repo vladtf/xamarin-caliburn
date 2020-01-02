@@ -14,9 +14,8 @@ namespace XCMDEMO.ViewModels
 
         public void ButtonClick(object args)
         {
-            //App.Current.MainPage.DisplayAlert("Alert!", "Press ok to continue.", "Ok", "Cancel");
+            App.Current.MainPage.DisplayAlert("Alert!", "Press ok to continue.", "Ok", "Cancel");
 
-            //var result = SQLDataAcces.GetPeople();
 
             if (args != null)
                 Console.WriteLine();
