@@ -13,9 +13,9 @@
     <ContentView.Content>
         <StackLayout VerticalOptions="CenterAndExpand"
                      HorizontalOptions="CenterAndExpand">
-            <Label Text="Hello Xamarin.Forms!" />
-            <Entry Placeholder="Type here !" Text="{Binding Text}" />
+            <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
             <Entry Placeholder="to display here" Text="{Binding Text}" />
+            <Label BindingContext="{Reference txt}" Text="{Binding Text}"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

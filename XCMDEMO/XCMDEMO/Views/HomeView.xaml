@@ -1,27 +1,31 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.HomeView"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
-             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             xmlns:v="clr-namespace:XCMDEMO.Views">
     <ContentView.BindingContext>
-        <vm:HomeViewModel/>
+        <vm:HomeViewModel />
     </ContentView.BindingContext>
+    <ContentView.Resources>
+        <v:NotBooleanCoverter x:Key="NotBooleanCoverter" />
+    </ContentView.Resources>
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <ListView ItemsSource="{Binding People}">
+            <ListView ItemsSource="{Binding People}" Margin="5">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Label Text="{Binding FullName}" HorizontalOptions="CenterAndExpand"/>
+                            <Label Text="{Binding FullName}" HorizontalOptions="CenterAndExpand" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -29,14 +33,28 @@
 
             <Grid VerticalOptions="Start" Grid.Row="1">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
-                <CheckBox Grid.Column="0" x:Name="check1"/>
-                <CheckBox Grid.Column="1" x:Name="check2" BindingContext="{x:Reference check1}"
-                          IsChecked="{Binding Path=IsChecked}"/>
-            </Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
+                <!-- Row 1 -->
+                <CheckBox Grid.Column="0" x:Name="check1" />
+                <CheckBox Grid.Column="1" x:Name="check2" BindingContext="{x:Reference check1}"
+                          IsChecked="{Binding Path=IsChecked}" />
+
+                <!-- Row 2 -->
+                <Label Grid.Row="1" FontSize="Large" Margin="10"
+                       Text="{Binding Source={x:Reference check1},Path=IsChecked}" />
+
+                <!-- Row 2 -->
+                <Label Grid.Row="2" FontSize="Large" Margin="10"
+                       Text="{Binding Source={x:Reference check1},Path=IsChecked,Converter={StaticResource NotBooleanCoverter}}" />
+            </Grid>
         </Grid>
     </ContentView.Content>
 </ContentView>
