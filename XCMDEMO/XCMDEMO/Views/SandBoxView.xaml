@@ -12,7 +12,7 @@
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
-                        <cm:Parameter Value="{Binding Source={Reference FullSyntax},Path=Text}"/>
+                        <cm:Parameter Value="{Binding Source={Reference FullSyntax}}" />
                     </cm:ActionMessage>
                 </EventTrigger>
             </Button.Triggers>

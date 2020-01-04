@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XCMDEMO.Models
+﻿namespace XCMDEMO.Models
 {
     public class PersonModel
     {

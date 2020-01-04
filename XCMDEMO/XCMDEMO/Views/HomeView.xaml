@@ -13,7 +13,7 @@
     </ContentView.BindingContext>
     <ContentView.Resources>
         <conv:NotBoolConverter x:Key="NotBoolConverter" />
-        <conv:YesNotBooleanConverter x:Key="YesNotBooleanConverter"/>
+        <conv:YesNotBooleanConverter x:Key="YesNotBooleanConverter" />
     </ContentView.Resources>
     <ContentView.Content>
         <Grid>
@@ -56,7 +56,7 @@
                 <!-- Row 3 -->
                 <Label Grid.Row="2" FontSize="Large" Margin="10"
                        Text="{Binding Source={x:Reference check1},Path=IsChecked,Converter={StaticResource NotBoolConverter}}" />
-                
+
                 <!-- Row 4 -->
                 <Entry Grid.Row="3" FontSize="Large" Margin="10"
                        Text="{Binding Source={x:Reference check1},Path=IsChecked,

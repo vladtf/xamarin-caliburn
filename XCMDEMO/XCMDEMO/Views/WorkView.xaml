@@ -15,7 +15,7 @@
                      HorizontalOptions="CenterAndExpand">
             <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
             <Entry Placeholder="to display here" Text="{Binding Text}" />
-            <Label BindingContext="{Reference txt}" Text="{Binding Text}"/>
+            <Label BindingContext="{Reference txt}" Text="{Binding Text}" />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

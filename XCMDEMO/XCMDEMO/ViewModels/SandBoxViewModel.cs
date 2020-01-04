@@ -1,6 +1,5 @@
 ﻿using Caliburn.Micro;
-using System;
-using XCMDEMO.Helpers;
+using Xamarin.Forms;
 
 namespace XCMDEMO.ViewModels
 {
@@ -12,13 +11,19 @@ namespace XCMDEMO.ViewModels
 
         public string DisplayName { get; set; } = "SandBox";
 
-        public void ButtonClick(object args)
+        public void ButtonClick(object sender)
         {
-            App.Current.MainPage.DisplayAlert("Alert!", "Press ok to continue.", "Ok", "Cancel");
+            if (sender.GetType() == typeof(Button))
+            {
+                Button button = (Button)sender;
+                string text = button.Text;
 
-
-            if (args != null)
-                Console.WriteLine();
+                App.Current.MainPage.DisplayAlert("Alert!", text, "Ok", "Cancel");
+            }
+            else
+            {
+                App.Current.MainPage.DisplayAlert("Alert!", "Press ok to continue.", "Ok", "Cancel");
+            }
         }
     }
 }

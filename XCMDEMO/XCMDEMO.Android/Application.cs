@@ -32,7 +32,6 @@ namespace XCMDEMO.Droid
             builder.RegisterModule<XCMDEMO.Module>();
 
             _container = builder.Build();
-
         }
 
         protected override IEnumerable<Assembly> SelectAssemblies()

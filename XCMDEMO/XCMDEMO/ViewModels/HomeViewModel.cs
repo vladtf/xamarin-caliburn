@@ -1,14 +1,10 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using XCMDEMO.Models;
 
 namespace XCMDEMO.ViewModels
 {
-    class HomeViewModel : Screen,IChildViewModel
+    internal class HomeViewModel : Screen, IChildViewModel
     {
-
         private BindableCollection<PersonModel> _people = new BindableCollection<PersonModel>();
 
         public HomeViewModel()
@@ -20,7 +16,6 @@ namespace XCMDEMO.ViewModels
             People.Add(new PersonModel { FirstName = "Joseph", LastName = "Smith" });
         }
 
-        
         public BindableCollection<PersonModel> People
         {
             get { return _people; }
@@ -28,6 +23,5 @@ namespace XCMDEMO.ViewModels
         }
 
         public string DisplayName { get; set; } = "Home";
-
     }
 }

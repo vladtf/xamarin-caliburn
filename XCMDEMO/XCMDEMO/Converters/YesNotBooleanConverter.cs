@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace XCMDEMO.Converters
@@ -17,7 +15,7 @@ namespace XCMDEMO.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ((string)value=="T")
+            if ((string)value == "T")
                 return true;
             return false;
         }

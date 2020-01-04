@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro.Xamarin.Forms;
-using System;
 using XCMDEMO.ViewModels;
 
 namespace XCMDEMO
@@ -11,7 +10,6 @@ namespace XCMDEMO
             InitializeComponent();
 
             DisplayRootViewFor<ShellViewModel>();
-
         }
     }
 }
