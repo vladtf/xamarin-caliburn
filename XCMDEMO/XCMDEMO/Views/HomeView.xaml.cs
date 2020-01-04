@@ -45,19 +45,4 @@ namespace XCMDEMO.Views
             return "no";
         }
     }
-
-    public class NotBooleanCoverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if ((bool)value)
-                return false;
-            return true;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return false;
-        }
-    }
 }

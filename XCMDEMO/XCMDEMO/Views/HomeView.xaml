@@ -7,12 +7,13 @@
              x:Class="XCMDEMO.Views.HomeView"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
-             xmlns:v="clr-namespace:XCMDEMO.Views">
+             xmlns:conv="clr-namespace:XCMDEMO.Converters">
     <ContentView.BindingContext>
         <vm:HomeViewModel />
     </ContentView.BindingContext>
     <ContentView.Resources>
-        <v:NotBooleanCoverter x:Key="NotBooleanCoverter" />
+        <conv:NotBoolConverter x:Key="NotBoolConverter" />
+        <conv:YesNotBooleanConverter x:Key="YesNotBooleanConverter"/>
     </ContentView.Resources>
     <ContentView.Content>
         <Grid>
@@ -40,6 +41,7 @@
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <!-- Row 1 -->
@@ -51,9 +53,14 @@
                 <Label Grid.Row="1" FontSize="Large" Margin="10"
                        Text="{Binding Source={x:Reference check1},Path=IsChecked}" />
 
-                <!-- Row 2 -->
+                <!-- Row 3 -->
                 <Label Grid.Row="2" FontSize="Large" Margin="10"
-                       Text="{Binding Source={x:Reference check1},Path=IsChecked,Converter={StaticResource NotBooleanCoverter}}" />
+                       Text="{Binding Source={x:Reference check1},Path=IsChecked,Converter={StaticResource NotBoolConverter}}" />
+                
+                <!-- Row 4 -->
+                <Entry Grid.Row="3" FontSize="Large" Margin="10"
+                       Text="{Binding Source={x:Reference check1},Path=IsChecked,
+                    Converter={StaticResource YesNotBooleanConverter}}" />
             </Grid>
         </Grid>
     </ContentView.Content>
