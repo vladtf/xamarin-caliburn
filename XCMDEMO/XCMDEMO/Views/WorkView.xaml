@@ -11,7 +11,7 @@
         <vm:WorkViewModel />
     </ContentView.BindingContext>
     <ContentView.Content>
-        <StackLayout VerticalOptions="CenterAndExpand"
+        <StackLayout VerticalOptions="Start"
                      HorizontalOptions="CenterAndExpand">
             <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
             <Entry Placeholder="to display here" Text="{Binding Text}" />

@@ -13,7 +13,7 @@ namespace XCMDEMO.ViewModels
 
         public void ButtonClick(object sender)
         {
-            if (sender.GetType() == typeof(Button))
+            if (sender?.GetType() == typeof(Button))
             {
                 Button button = (Button)sender;
                 string text = button.Text;

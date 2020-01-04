@@ -7,8 +7,30 @@
              xmlns:i="Inter"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              x:Class="XCMDEMO.Views.SandBoxView" Padding="5">
-    <StackLayout>
-        <Button BackgroundColor="Green" x:Name="FullSyntax" Text="Hello">
+
+    <ContentView.Resources>
+        <Style TargetType="Button" x:Key="BindActionStyle">
+            <Style.Triggers>
+                <EventTrigger Event="Clicked">
+                    <cm:ActionMessage MethodName="ButtonClick">
+                        <cm:Parameter Value="asd"/>
+                    </cm:ActionMessage>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Row="1" BackgroundColor="Green" x:Name="FullSyntax" Text="Hello" >
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
@@ -18,7 +40,21 @@
             </Button.Triggers>
         </Button>
 
-        <Button BackgroundColor="Red" cm:Message.Attach="[Event Clicked] = [ButtonClick($this)]" />
-        <Button BackgroundColor="Pink" cm:Message.Attach="[Event Clicked] = [ButtonClick($this)]" />
-    </StackLayout>
+        <Button Grid.Row="2" BackgroundColor="Red" Text="Button 2" Style="{x:StaticResource BindActionStyle}"/>
+        <Button Grid.Row="3" BackgroundColor="Pink">
+            <Button.Triggers>
+                <EventTrigger Event="Clicked">
+                    <cm:ActionMessage MethodName="ButtonClick">
+                        <cm:Parameter />
+                    </cm:ActionMessage>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+
+        <Button Grid.Row="4" BackgroundColor="Aqua" HorizontalOptions="Center"
+                WidthRequest="200"
+                HeightRequest="{Binding Source={RelativeSource Mode=Self},Path=WidthRequest}"/>
+
+
+    </Grid>
 </ContentView>
