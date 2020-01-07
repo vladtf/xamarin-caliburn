@@ -5,17 +5,22 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.WorkView"
-             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
-    <ContentView.BindingContext>
-        <vm:WorkViewModel />
-    </ContentView.BindingContext>
     <ContentView.Content>
-        <StackLayout VerticalOptions="Start"
-                     HorizontalOptions="CenterAndExpand">
-            <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
-            <Entry Placeholder="to display here" Text="{Binding Text}" />
-            <Label BindingContext="{Reference txt}" Text="{Binding Text}" />
+        <StackLayout HorizontalOptions="Center">
+
+            <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+                <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
+                <Entry Placeholder="to display here" Text="{Binding Text}" />
+                <Label BindingContext="{Reference txt}" Text="{Binding Text}" />
+            </StackLayout>
+
+            <Grid VerticalOptions="End" HorizontalOptions="Center">
+                <Button Text="🏠" WidthRequest="50"
+                        cm:Message.Attach="[Event Clicked] = [Action NavigateToHome]"/>
+            </Grid>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

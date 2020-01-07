@@ -30,6 +30,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
+        <!-- Injecting parameter as a reference -->
         <Button Grid.Row="1" BackgroundColor="Green" x:Name="FullSyntax" Text="Hello" >
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
@@ -40,8 +41,11 @@
             </Button.Triggers>
         </Button>
 
+        <!-- Injecting parameter using a style -->
         <Button Grid.Row="2" BackgroundColor="Red" Text="Button 2" Style="{x:StaticResource BindActionStyle}"/>
-        <Button Grid.Row="3" BackgroundColor="Pink">
+        
+        <!-- Injecting paramter as a relative source -->
+        <Button Grid.Row="3" BackgroundColor="Black">
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
@@ -51,6 +55,7 @@
             </Button.Triggers>
         </Button>
 
+        <!-- Using RelativSource to set height and text -->
         <Button Grid.Row="4" BackgroundColor="Aqua" HorizontalOptions="Center"
                 WidthRequest="200"
                 HeightRequest="{Binding Source={RelativeSource Mode=Self},Path=WidthRequest}"/>
