@@ -8,9 +8,6 @@
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
              xmlns:conv="clr-namespace:XCMDEMO.Converters">
-    <ContentView.BindingContext>
-        <vm:HomeViewModel />
-    </ContentView.BindingContext>
     <ContentView.Resources>
         <conv:NotBoolConverter x:Key="NotBoolConverter" />
         <conv:YesNotBooleanConverter x:Key="YesNotBooleanConverter" />
@@ -22,7 +19,9 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <ListView ItemsSource="{Binding People}" Margin="5">
+            <ListView ItemsSource="{Binding People}" Margin="5"
+                      SelectedItem="{Binding SelectedPerson}"
+                      cm:Message.Attach="[Event ItemSelected] = [Action ItemSelected]">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

@@ -1,20 +1,18 @@
 ﻿using Caliburn.Micro;
 using System;
-using XCMDEMO.NavigateToMessage;
+using XCMDEMO.NavigateToMessageEvent;
 
 namespace XCMDEMO.ViewModels
 {
     public class WorkViewModel : Screen, IChildViewModel
     {
-        public WorkViewModel(EventAggregator eventAggregator)
+        public WorkViewModel()
         {
-            _eventAggregator = eventAggregator;
         }
-
         public string DisplayName { get; set; } = "Work";
 
         private string _text;
-        private readonly EventAggregator _eventAggregator;
+        private readonly EventAggregator _eventAggregator = (EventAggregator)IoC.Get<EventAggregator>();
 
         public string Text
         {
@@ -24,7 +22,7 @@ namespace XCMDEMO.ViewModels
 
         public void NavigateToHome()
         {
-            _eventAggregator.PublishOnUIThreadAsync(new NavigateToMessage.NavigateToMessage(NavigateToEnum.HomeViewModel));
+            _eventAggregator.PublishOnUIThreadAsync(new NavigateToMessage(NavigateToEnum.HomeViewModel));
         }
     }
 }

@@ -8,6 +8,10 @@
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
+    <ContentView.BindingContext>
+        <vm:WorkViewModel/>
+    </ContentView.BindingContext>
+    
     <ContentView.Content>
         <StackLayout HorizontalOptions="Center">
 
@@ -18,7 +22,12 @@
             </StackLayout>
 
             <Grid VerticalOptions="End" HorizontalOptions="Center">
-                <Button Text="🏠" WidthRequest="50"
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="1" Text="🏠" WidthRequest="50"
                         cm:Message.Attach="[Event Clicked] = [Action NavigateToHome]"/>
             </Grid>
         </StackLayout>

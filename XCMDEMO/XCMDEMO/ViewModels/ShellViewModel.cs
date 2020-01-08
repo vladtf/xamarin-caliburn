@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using XCMDEMO.NavigateToMessage;
+using XCMDEMO.NavigateToMessageEvent;
 
 namespace XCMDEMO.ViewModels
 {
-    public class ShellViewModel : Conductor<object>.Collection.OneActive,IHandle<NavigateToMessage.NavigateToMessage>
+    public class ShellViewModel : Conductor<object>.Collection.OneActive,IHandle<NavigateToMessageEvent.NavigateToMessage>
     {
         public ShellViewModel(IEnumerable<IChildViewModel> children, EventAggregator eventAggregator)
         {
@@ -24,7 +24,7 @@ namespace XCMDEMO.ViewModels
 
         }
 
-        public Task HandleAsync(NavigateToMessage.NavigateToMessage message, CancellationToken cancellationToken)
+        public Task HandleAsync(NavigateToMessageEvent.NavigateToMessage message, CancellationToken cancellationToken)
         {
             foreach (var item in Items)
             {

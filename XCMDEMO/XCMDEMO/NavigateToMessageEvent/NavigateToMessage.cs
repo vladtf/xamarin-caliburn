@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace XCMDEMO.NavigateToMessage
+namespace XCMDEMO.NavigateToMessageEvent
 {
     public class NavigateToMessage
     {
@@ -16,6 +16,7 @@ namespace XCMDEMO.NavigateToMessage
     {
         HomeViewModel,
         SandBoxViewModel,
-        WorkViewModel
+        WorkViewModel,
+        TestViewModel
     }
 }

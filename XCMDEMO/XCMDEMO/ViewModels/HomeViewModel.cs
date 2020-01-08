@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using System.Linq;
 using XCMDEMO.Models;
 
 namespace XCMDEMO.ViewModels
@@ -6,6 +7,7 @@ namespace XCMDEMO.ViewModels
     internal class HomeViewModel : Screen, IChildViewModel
     {
         private BindableCollection<PersonModel> _people = new BindableCollection<PersonModel>();
+        private EventAggregator _eventAggregater = IoC.Get<EventAggregator>();
 
         public HomeViewModel()
         {
@@ -14,6 +16,9 @@ namespace XCMDEMO.ViewModels
             People.Add(new PersonModel { FirstName = "John", LastName = "Smith" });
             People.Add(new PersonModel { FirstName = "Will", LastName = "Johnson" });
             People.Add(new PersonModel { FirstName = "Joseph", LastName = "Smith" });
+
+            SelectedPerson = People.FirstOrDefault();
+
         }
 
         public BindableCollection<PersonModel> People
@@ -23,5 +28,20 @@ namespace XCMDEMO.ViewModels
         }
 
         public string DisplayName { get; set; } = "Home";
+
+
+        private PersonModel _selectedPerson;
+
+        public PersonModel SelectedPerson
+        {
+            get { return _selectedPerson; }
+            set { Set(ref _selectedPerson, value); }
+        }
+
+
+        public void ItemSelected()
+        {
+            _eventAggregater.PublishOnUIThreadAsync(SelectedPerson);
+        }
     }
 }
