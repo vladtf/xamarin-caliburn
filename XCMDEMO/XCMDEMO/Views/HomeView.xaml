@@ -24,8 +24,14 @@
                       cm:Message.Attach="[Event ItemSelected] = [Action ItemSelected($selecteditem)]">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Label Text="{Binding FullName}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                        <ViewCell >
+                            <Grid  BackgroundColor="LightBlue" Margin="5">
+                                <Label Text="{Binding FullName}"
+                                       HorizontalOptions="CenterAndExpand" 
+                                       VerticalOptions="Center"
+                                       TextColor="White"/>
+                            </Grid>
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

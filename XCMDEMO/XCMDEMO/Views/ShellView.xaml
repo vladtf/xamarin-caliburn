@@ -8,7 +8,8 @@
              x:Class="XCMDEMO.Views.ShellView"
             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
             ItemsSource="{Binding Items}"
-            SelectedItem="{Binding ActiveItem}">
+            SelectedItem="{Binding ActiveItem}"
+            SelectedTabColor="LightBlue">
 
     <TabbedPage.ItemTemplate>
         <DataTemplate>

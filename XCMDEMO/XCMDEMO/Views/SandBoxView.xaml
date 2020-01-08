@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         
         <!-- Injecting parameter as a reference -->
-        <Button Grid.Row="1" BackgroundColor="Green" x:Name="FullSyntax" Text="Hello" >
+        <Button Grid.Row="1" BackgroundColor="Green" x:Name="FullSyntax" Text="Hello" Margin="5">
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
@@ -37,10 +37,10 @@
         </Button>
 
         <!-- Injecting parameter using a style -->
-        <Button Grid.Row="2" BackgroundColor="Red" Text="Button Red" Style="{x:StaticResource BindActionStyle}"/>
+        <Button Grid.Row="2" BackgroundColor="Red" Text="Button Red" Style="{x:StaticResource BindActionStyle}" Margin="5"/>
         
         <!-- Injecting paramter as a relative source (not working) -->
-        <Button Grid.Row="3" BackgroundColor="Black">
+        <Button Grid.Row="3" BackgroundColor="Black" Margin="5">
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
@@ -53,13 +53,13 @@
         </Button>
         
         <!-- Injecting parameter using a special value $sender -->
-        <Button Grid.Row="4" BackgroundColor="Yellow" Text="Yellow Clicked"
+        <Button Grid.Row="4" BackgroundColor="Yellow" Text="Yellow Clicked" Margin="5"
                 cm:Message.Attach="[Event Clicked] = [Action ButtonClick($sender)]"/>
 
 
         <!-- Using RelativSource to set height and text -->
         <Button Grid.Row="5" BackgroundColor="Aqua" HorizontalOptions="Center"
-                WidthRequest="200"
+                WidthRequest="200" Margin="5"
                 HeightRequest="{Binding Source={RelativeSource Mode=Self},Path=WidthRequest}"/>
 
 
