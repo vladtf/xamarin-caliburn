@@ -21,7 +21,7 @@
 
             <ListView ItemsSource="{Binding People}" Margin="5"
                       SelectedItem="{Binding SelectedPerson}"
-                      cm:Message.Attach="[Event ItemSelected] = [Action ItemSelected]">
+                      cm:Message.Attach="[Event ItemSelected] = [Action ItemSelected($selecteditem)]">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

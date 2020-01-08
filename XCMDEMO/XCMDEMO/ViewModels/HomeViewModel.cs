@@ -39,7 +39,7 @@ namespace XCMDEMO.ViewModels
         }
 
 
-        public void ItemSelected()
+        public void ItemSelected(object parameter)
         {
             _eventAggregater.PublishOnUIThreadAsync(SelectedPerson);
         }

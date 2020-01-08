@@ -10,19 +10,14 @@
 
     <ContentView.Resources>
         <Style TargetType="Button" x:Key="BindActionStyle">
-            <Style.Triggers>
-                <EventTrigger Event="Clicked">
-                    <cm:ActionMessage MethodName="ButtonClick">
-                        <cm:Parameter Value="asd"/>
-                    </cm:ActionMessage>
-                </EventTrigger>
-            </Style.Triggers>
+            <Setter Property="cm:Message.Attach" Value="ButtonClick($sender)"/>
         </Style>
     </ContentView.Resources>
     
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="10"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -42,21 +37,28 @@
         </Button>
 
         <!-- Injecting parameter using a style -->
-        <Button Grid.Row="2" BackgroundColor="Red" Text="Button 2" Style="{x:StaticResource BindActionStyle}"/>
+        <Button Grid.Row="2" BackgroundColor="Red" Text="Button Red" Style="{x:StaticResource BindActionStyle}"/>
         
-        <!-- Injecting paramter as a relative source -->
+        <!-- Injecting paramter as a relative source (not working) -->
         <Button Grid.Row="3" BackgroundColor="Black">
             <Button.Triggers>
                 <EventTrigger Event="Clicked">
                     <cm:ActionMessage MethodName="ButtonClick">
-                        <cm:Parameter />
+                        <!--
+                        <cm:Parameter Value="{Binding Source={RelativeSource Mode=Self}}" />
+                        -->
                     </cm:ActionMessage>
                 </EventTrigger>
             </Button.Triggers>
         </Button>
+        
+        <!-- Injecting parameter using a special value $sender -->
+        <Button Grid.Row="4" BackgroundColor="Yellow" Text="Yellow Clicked"
+                cm:Message.Attach="[Event Clicked] = [Action ButtonClick($sender)]"/>
+
 
         <!-- Using RelativSource to set height and text -->
-        <Button Grid.Row="4" BackgroundColor="Aqua" HorizontalOptions="Center"
+        <Button Grid.Row="5" BackgroundColor="Aqua" HorizontalOptions="Center"
                 WidthRequest="200"
                 HeightRequest="{Binding Source={RelativeSource Mode=Self},Path=WidthRequest}"/>
 

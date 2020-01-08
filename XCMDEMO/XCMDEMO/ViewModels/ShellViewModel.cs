@@ -32,10 +32,10 @@ namespace XCMDEMO.ViewModels
                 if(item.GetType().ToString().EndsWith(message.NavigateToEnum.ToString()))
                 {
                     ActivateItem(item);
-                    return null;
+                    return Task.CompletedTask;
                 }
             }
-            return null;
+            return Task.CompletedTask;
         }
     }
 }
