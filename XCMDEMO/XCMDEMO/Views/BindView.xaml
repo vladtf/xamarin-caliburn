@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="XCMDEMO.Views.BindView"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+
+    <ContentView.BindingContext>
+        <vm:BindViewModel/>
+    </ContentView.BindingContext>
+  <ContentView.Content>
+        <StackLayout>
+            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                <Label Text="{Binding Timer}" FontSize="Large"/>
+            </StackLayout>
+        </StackLayout>
+  </ContentView.Content>
+</ContentView>
