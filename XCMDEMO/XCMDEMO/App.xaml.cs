@@ -6,7 +6,7 @@ namespace XCMDEMO
 {
     public partial class App : FormsApplication
     {
-        public App(ShellViewModel shell)
+        public App()
         {
             InitializeComponent();
 
@@ -21,7 +21,7 @@ namespace XCMDEMO
                 return c?.Source;
             });
 
-            DisplayRootViewFor<ShellViewModel>();
+            DisplayRootViewFor<MainViewModel>();
         }
     }
 }

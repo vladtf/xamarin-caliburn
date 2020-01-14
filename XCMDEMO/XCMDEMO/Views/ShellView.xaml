@@ -9,7 +9,8 @@
             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
             ItemsSource="{Binding Items}"
             SelectedItem="{Binding ActiveItem}"
-            SelectedTabColor="LightBlue">
+            SelectedTabColor="LightBlue"
+            Title="Shell View">
 
     <TabbedPage.ItemTemplate>
         <DataTemplate>

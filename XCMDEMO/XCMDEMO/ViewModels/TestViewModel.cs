@@ -17,6 +17,11 @@ namespace XCMDEMO.ViewModels
         {
             _eventAggregator = IoC.Get<EventAggregator>();
             _eventAggregator.SubscribeOnUIThread(this);
+
+            Person = new PersonModel();
+
+            Person.FirstName = "FirstName";
+            Person.LastName = "LastName";
         }
 
         public string DisplayName { get; set; } = "Test";
