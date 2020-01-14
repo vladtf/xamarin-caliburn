@@ -4,5 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.MainView">
+             x:Class="XCMDEMO.Views.MainView"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+                  xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 </MasterDetailPage>

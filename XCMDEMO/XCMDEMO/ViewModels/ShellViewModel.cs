@@ -9,16 +9,19 @@ namespace XCMDEMO.ViewModels
 {
     public class ShellViewModel : Conductor<object>.Collection.OneActive,IHandle<NavigateToMessageEvent.NavigateToMessage>
     {
-        public ShellViewModel(IEnumerable<IChildViewModel> children, EventAggregator eventAggregator)
+        public ShellViewModel()
         {
             //SandBoxViewModel sand = (SandBoxViewModel)IoC.GetInstance(typeof(SandBoxViewModel), null);
             //WorkViewModel work = (WorkViewModel)IoC.GetInstance(typeof(WorkViewModel), null);
 
             //Items.Add(sand);
             //Items.Add(work);
+            IEnumerable<IChildViewModel> children = IoC.Get < IEnumerable<IChildViewModel>>();
 
             Items.AddRange(children);
             ActiveItem = Items.FirstOrDefault();
+
+            EventAggregator eventAggregator = IoC.Get<EventAggregator>();
 
             eventAggregator.SubscribeOnUIThread(this);
 

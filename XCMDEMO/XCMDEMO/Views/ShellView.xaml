@@ -12,6 +12,10 @@
             SelectedTabColor="LightBlue"
             Title="Shell View">
 
+    <TabbedPage.BindingContext>
+        <vm:ShellViewModel/>
+    </TabbedPage.BindingContext>
+
     <TabbedPage.ItemTemplate>
         <DataTemplate>
             <ContentPage Title="{Binding DisplayName}" cal:View.Model="{Binding}" />

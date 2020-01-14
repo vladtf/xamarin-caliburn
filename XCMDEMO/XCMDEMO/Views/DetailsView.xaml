@@ -5,12 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.DetailsView"
-             Title="Details View">
+             Title="Details View"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             xmlns:v="clr-namespace:XCMDEMO.Views"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <v:WorkView >
+            <ContentView.BindingContext>
+                <vm:WorkViewModel/>
+            </ContentView.BindingContext>
+        </v:WorkView>
     </ContentPage.Content>
 </ContentPage>
