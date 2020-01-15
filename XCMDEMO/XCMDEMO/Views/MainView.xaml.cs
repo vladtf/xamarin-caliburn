@@ -15,9 +15,6 @@ namespace XCMDEMO.Views
         public MainView()
         {
             InitializeComponent();
-
-            this.Master = new MasterView();
-            this.Detail = new NavigationPage(new ShellView());
         }
     }
 }

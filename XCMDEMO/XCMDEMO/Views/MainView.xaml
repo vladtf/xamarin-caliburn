@@ -1,10 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.MainView"
-             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
-                  xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  mc:Ignorable="d"
+                  x:Class="XCMDEMO.Views.MainView"
+                  xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+                  xmlns:conv="clr-namespace:XCMDEMO.Converters"
+                  xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
+                  xmlns:views="clr-namespace:XCMDEMO.Views">
+
+    <MasterDetailPage.Resources>
+        <conv:DebugConverter x:Key="DebugConverter"/>
+    </MasterDetailPage.Resources>
+
+    <MasterDetailPage.Master>
+        <ContentPage Title="Master">
+            <ListView ItemsSource="{Binding Items, Converter={StaticResource DebugConverter}}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ContentView cm:View.Model="{Binding}" cm:View.Context="MasterView" />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage>
+    </MasterDetailPage.Master>
+    <MasterDetailPage.Detail>
+        <ContentPage cm:View.Model="{Binding ActiveItem}" Title="Master" />
+    </MasterDetailPage.Detail>
 </MasterDetailPage>

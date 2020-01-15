@@ -21,8 +21,12 @@
                 <CheckBox Grid.Row="1" IsChecked="{Binding CanTime}"
                               cm:Message.Attach="[Event CheckedChanged] = [Action StartTimer]" />
             </StackLayout>
-            
+
             <!-- Row 2 -->
+            <Button Text="Start"
+                    cm:Message.Attach="StartTimer"/>
+
+            <!-- Row 3 -->
             <Button Text="Cancel"
                     cm:Message.Attach="Cancel"/>
         </StackLayout>

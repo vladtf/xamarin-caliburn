@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace XCMDEMO.ViewModels
@@ -11,9 +12,15 @@ namespace XCMDEMO.ViewModels
 
         public MainViewModel()
         {
-            ShellView = IoC.Get<ShellViewModel>();
+            //ShellView = IoC.Get<ShellViewModel>();
 
-            ActivateItem(ShellView);
+            //ActivateItem(ShellView);
+
+            IEnumerable<IChildViewModel> children = IoC.Get<IEnumerable<IChildViewModel>>();
+
+            ActivateItem(children.FirstOrDefault());
+
+            Items.AddRange(children);
         }
     }
 }

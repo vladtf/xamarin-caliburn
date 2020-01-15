@@ -11,28 +11,33 @@ namespace XCMDEMO.ViewModels
     public class BindViewModel : Screen, IChildViewModel
     {
         public string DisplayName { get; set; } = "Bind Page";
-        private CancellationToken ct;
-        private CancellationTokenSource cts = new CancellationTokenSource();
 
         public BindViewModel()
         {
-            ct = cts.Token;
-
-            Task.Factory.StartNew(() =>
+            cts = new CancellationTokenSource();
+            CancellationToken token = cts.Token;
+            try
             {
-                while (true)
+                //this runs your asynchronous method
+                //you must check periodically to see 
+                //if cancellation has been requested
+                Task.Run(() =>
                 {
-                    Task.Delay(1000).Wait();
-                    Timer++;
+                    while (true)
+                    {
+                        Timer++;
 
-                    ct.ThrowIfCancellationRequested();
-                }
-
-            }, ct);
-
-            //Thread.Sleep(1001);
-            //cts.Cancel();
-
+                        Thread.Sleep(1000);
+                        //check to see if operation is cancelled
+                        //and throw exception if it is
+                        token.ThrowIfCancellationRequested();
+                    }
+                }, token);
+            }
+            catch (OperationCanceledException)
+            {
+                CanTime = false;
+            }
         }
 
 
@@ -55,22 +60,17 @@ namespace XCMDEMO.ViewModels
         }
 
 
-        public void StartTimer()
+        private CancellationTokenSource cts;
+        //called from a 'start' button click
+        private async void StartTimer()
         {
-            //Device.StartTimer(TimeSpan.FromMilliseconds(1000), () =>
-            //{
-            //    Timer++;
 
-            //    return CanTime;
-            //});
-            //cts.Cancel();
 
         }
-
-        public void Cancel()
+        //called from a 'cancel' button
+        private void Cancel()
         {
             cts.Cancel();
         }
-
     }
 }

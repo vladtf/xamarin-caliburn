@@ -6,7 +6,7 @@ namespace XCMDEMO
 {
     public partial class App : FormsApplication
     {
-        public App()
+        public App(ShellViewModel shell)
         {
             InitializeComponent();
 

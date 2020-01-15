@@ -10,7 +10,7 @@ using Xamarin.Forms.Xaml;
 namespace XCMDEMO.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MasterView : ContentPage
+    public partial class MasterView : ContentView
     {
         public MasterView()
         {
