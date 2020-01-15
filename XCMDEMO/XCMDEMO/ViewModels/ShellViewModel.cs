@@ -21,8 +21,10 @@ namespace XCMDEMO.ViewModels
             Items.AddRange(children);
             ActiveItem = Items.FirstOrDefault();
 
-            EventAggregator eventAggregator = IoC.Get<EventAggregator>();
 
+            //Subscribe on EventAggregator
+
+            EventAggregator eventAggregator = IoC.Get<EventAggregator>();
             eventAggregator.SubscribeOnUIThread(this);
 
         }

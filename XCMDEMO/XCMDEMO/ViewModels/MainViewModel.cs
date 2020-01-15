@@ -3,10 +3,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using XCMDEMO.NavigateToMessageEvent;
 
 namespace XCMDEMO.ViewModels
 {
-    public class MainViewModel : Conductor<object>.Collection.OneActive
+    public class MainViewModel : Conductor<object>.Collection.OneActive,IHandle<NavigateToMessage>
     {
         public ShellViewModel ShellView;
 
@@ -17,8 +20,8 @@ namespace XCMDEMO.ViewModels
         {
 
             MasterListAvailable = true;
-            //ShellView = IoC.Get<ShellViewModel>();
 
+            //ShellView = IoC.Get<ShellViewModel>();
             //ActivateItem(ShellView);
 
             IEnumerable<IChildViewModel> children = IoC.Get<IEnumerable<IChildViewModel>>();
@@ -26,6 +29,10 @@ namespace XCMDEMO.ViewModels
             Items.AddRange(children);
 
             ActivateItem(Items.FirstOrDefault());
+
+            //Subscribe on Eventaggregator
+            EventAggregator eventAggregator = IoC.Get<EventAggregator>();
+            eventAggregator.SubscribeOnUIThread(this);
         }
 
         protected override void OnActivationProcessed(object item, bool success)
@@ -41,6 +48,21 @@ namespace XCMDEMO.ViewModels
                 masterListAvailable = value;
                 NotifyOfPropertyChange();
             }
+        }
+
+
+        public Task HandleAsync(NavigateToMessage message, CancellationToken cancellationToken)
+        {
+            foreach (var item in Items)
+            {
+                //Check if type of item ends with published enum 
+                if (item.GetType().ToString().EndsWith(message.NavigateToEnum.ToString()))
+                {
+                    ActivateItem(item);
+                    return Task.CompletedTask;
+                }
+            }
+            return Task.CompletedTask;
         }
     }
 }
