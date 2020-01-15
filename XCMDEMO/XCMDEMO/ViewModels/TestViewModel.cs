@@ -25,6 +25,7 @@ namespace XCMDEMO.ViewModels
         }
 
         public string DisplayName { get; set; } = "Test";
+        public string Title = "Test";
 
         public Task HandleAsync(PersonModel message, CancellationToken cancellationToken)
         {

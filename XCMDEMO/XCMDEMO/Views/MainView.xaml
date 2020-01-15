@@ -14,6 +14,10 @@
         <conv:DebugConverter x:Key="DebugConverter"/>
     </MasterDetailPage.Resources>
 
+    <MasterDetailPage.BindingContext>
+        <vm:MainViewModel/>
+    </MasterDetailPage.BindingContext>
+
     <MasterDetailPage.Master>
         <ContentPage Title="Master">
             <ListView ItemsSource="{Binding Items, Converter={StaticResource DebugConverter}}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
@@ -28,6 +32,10 @@
         </ContentPage>
     </MasterDetailPage.Master>
     <MasterDetailPage.Detail>
-        <ContentPage cm:View.Model="{Binding ActiveItem}" Title="Master" />
+        <NavigationPage>
+            <x:Arguments>
+                <ContentPage cm:View.Model="{Binding ActiveItem}" Title="{Binding ActiveItem,Path=Title}}" />
+            </x:Arguments>
+        </NavigationPage>
     </MasterDetailPage.Detail>
 </MasterDetailPage>
