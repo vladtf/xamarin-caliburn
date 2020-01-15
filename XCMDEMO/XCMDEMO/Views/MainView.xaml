@@ -8,10 +8,11 @@
                   xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
                   xmlns:conv="clr-namespace:XCMDEMO.Converters"
                   xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
-                  xmlns:views="clr-namespace:XCMDEMO.Views">
+                  xmlns:views="clr-namespace:XCMDEMO.Views"
+                  IsPresented="{Binding MasterListAvailable}">
 
     <MasterDetailPage.Resources>
-        <conv:DebugConverter x:Key="DebugConverter"/>
+        <conv:TitleConverter x:Key="TitleConverter"/>
     </MasterDetailPage.Resources>
 
     <MasterDetailPage.BindingContext>
@@ -20,7 +21,7 @@
 
     <MasterDetailPage.Master>
         <ContentPage Title="Master">
-            <ListView ItemsSource="{Binding Items, Converter={StaticResource DebugConverter}}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
+            <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -34,7 +35,7 @@
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
-                <ContentPage cm:View.Model="{Binding ActiveItem}" Title="{Binding ActiveItem,Path=Title}}" />
+                <ContentPage cm:View.Model="{Binding ActiveItem}" Title="{Binding ActiveItem,Converter={StaticResource TitleConverter}}" />
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>

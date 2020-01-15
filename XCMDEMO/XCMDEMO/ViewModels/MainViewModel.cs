@@ -10,8 +10,13 @@ namespace XCMDEMO.ViewModels
     {
         public ShellViewModel ShellView;
 
+        private bool masterListAvailable;
+
+
         public MainViewModel()
         {
+
+            MasterListAvailable = true;
             //ShellView = IoC.Get<ShellViewModel>();
 
             //ActivateItem(ShellView);
@@ -21,6 +26,21 @@ namespace XCMDEMO.ViewModels
             ActivateItem(children.FirstOrDefault());
 
             Items.AddRange(children);
+        }
+
+        protected override void OnActivationProcessed(object item, bool success)
+        {
+            MasterListAvailable = item == null;
+        }
+
+        public bool MasterListAvailable
+        {
+            get { return masterListAvailable; }
+            set
+            {
+                masterListAvailable = value;
+                NotifyOfPropertyChange();
+            }
         }
     }
 }
