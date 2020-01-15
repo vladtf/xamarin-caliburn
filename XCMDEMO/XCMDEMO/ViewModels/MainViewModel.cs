@@ -23,9 +23,9 @@ namespace XCMDEMO.ViewModels
 
             IEnumerable<IChildViewModel> children = IoC.Get<IEnumerable<IChildViewModel>>();
 
-            ActivateItem(children.FirstOrDefault());
-
             Items.AddRange(children);
+
+            ActivateItem(Items.FirstOrDefault());
         }
 
         protected override void OnActivationProcessed(object item, bool success)
