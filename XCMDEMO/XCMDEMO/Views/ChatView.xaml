@@ -5,9 +5,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.ChatView"
-             BackgroundColor="#2B5278">
+             BackgroundColor="#2B5278"
+             xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+
+    <ContentView.BindingContext>
+        <vm:ChatViewModel/>
+    </ContentView.BindingContext>
+    
   <ContentView.Content>
         <StackLayout>
+            <!-- Messages ListView-->
+            <ListView ItemsSource="{Binding Messages}" SelectionMode="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="10" Padding="0,0,5,0">
+                                <BoxView BackgroundColor="#17212B" CornerRadius="5"/>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="👤" Padding="5,0,0,0" Margin="5,0" TextColor="#2B5278"/>
+                                    <Label Text="{Binding}" TextColor="White"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <!-- Enter Message Bar -->
             <StackLayout VerticalOptions="EndAndExpand">
                 <Grid BackgroundColor="#17212B">
                     <Grid.ColumnDefinitions>

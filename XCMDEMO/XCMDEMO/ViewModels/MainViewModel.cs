@@ -28,7 +28,7 @@ namespace XCMDEMO.ViewModels
 
             Items.AddRange(children);
 
-            ActivateItem(Items.FirstOrDefault());
+            ActivateItem(IoC.Get<ChatViewModel>());
 
             //Subscribe on Eventaggregator
             EventAggregator eventAggregator = IoC.Get<EventAggregator>();
