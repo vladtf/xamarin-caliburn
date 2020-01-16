@@ -16,28 +16,22 @@
     <ContentView.Content>
         <StackLayout Padding="0,10,0,0">
             <!-- Messages ListView-->
-            <ListView ItemsSource="{Binding Messages}" SelectionMode="None">
+            <ListView ItemsSource="{Binding Messages}" SelectionMode="None" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid Margin="5" Padding="0,0,10,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="auto"/>
-                                </Grid.RowDefinitions>
-                                
-                                 <BoxView BackgroundColor="#17212B" CornerRadius="5" />
-                                <Grid VerticalOptions="Center">
+                                <BoxView BackgroundColor="#17212B" CornerRadius="5" VerticalOptions="FillAndExpand" />
+                                <Grid VerticalOptions="Center" >
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Label Text="👤" Padding="5,0,5,0" Margin="5,0" TextColor="#2B5278"
+                                    
+                                    <Label Text="👤" Padding="5,0,5,0" 
+                                           Margin="5,0" TextColor="#2B5278"
                                            VerticalOptions="Center"/>
                                     <Label Grid.Column="1" Text="{Binding}" TextColor="White" 
-                                           Padding="2" VerticalOptions="Center" />
+                                           Padding="0,5,5,5" VerticalOptions="Center"/>
                                 </Grid>
                             </Grid>
                         </ViewCell>
