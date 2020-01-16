@@ -12,7 +12,7 @@ namespace XCMDEMO.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var result = (IChildViewModel)value;
-            return result.DisplayName;
+            return result.Title;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

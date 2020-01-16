@@ -2,6 +2,6 @@
 {
     public interface IChildViewModel
     {
-        string DisplayName { get; set; }
+        string Title { get; set; }
     }
 }

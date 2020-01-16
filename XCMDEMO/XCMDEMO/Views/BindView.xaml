@@ -18,8 +18,7 @@
                          Orientation="Horizontal">
 
                 <Label Grid.Row="0" Text="{Binding Timer}" FontSize="Large" />
-                <CheckBox Grid.Row="1" IsChecked="{Binding CanTime}"
-                              cm:Message.Attach="[Event CheckedChanged] = [Action StartTimer]" />
+                <CheckBox Grid.Row="1" IsChecked="{Binding CanTime}" />
             </StackLayout>
 
             <!-- Row 2 -->

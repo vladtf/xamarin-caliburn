@@ -10,7 +10,7 @@ namespace XCMDEMO.ViewModels
 {
     public class BindViewModel : Screen, IChildViewModel
     {
-        public string DisplayName { get; set; } = "Bind Page";
+        public string Title { get; set; } = "Bind Page";
 
         public BindViewModel()
         {
@@ -61,11 +61,13 @@ namespace XCMDEMO.ViewModels
 
 
         private CancellationTokenSource cts;
+        
         //called from a 'start' button click
-        private async void StartTimer()
+        private void StartTimer()
         {
-           
+            App.Current.MainPage.DisplayAlert("error", "Not Implemnted.", "Ok");
         }
+
         //called from a 'cancel' button
         private void Cancel()
         {

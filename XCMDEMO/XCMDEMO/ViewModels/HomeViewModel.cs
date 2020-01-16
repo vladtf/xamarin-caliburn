@@ -8,6 +8,7 @@ namespace XCMDEMO.ViewModels
     {
         private BindableCollection<PersonModel> _people = new BindableCollection<PersonModel>();
         private EventAggregator _eventAggregater = IoC.Get<EventAggregator>();
+        public string Title { get; set; } = "Home";
 
         public HomeViewModel()
         {
@@ -27,7 +28,6 @@ namespace XCMDEMO.ViewModels
             set { Set(ref _people, value); }
         }
 
-        public string DisplayName { get; set; } = "Home";
 
 
         private PersonModel _selectedPerson;

@@ -18,7 +18,7 @@
 
     <TabbedPage.ItemTemplate>
         <DataTemplate>
-            <ContentPage Title="{Binding DisplayName}" cal:View.Model="{Binding}" />
+            <ContentPage Title="{Binding Title}" cal:View.Model="{Binding}" />
         </DataTemplate>
     </TabbedPage.ItemTemplate>
 </TabbedPage>

@@ -13,6 +13,7 @@ namespace XCMDEMO.ViewModels
     {
         private readonly EventAggregator _eventAggregator;
         private PersonModel _person;
+        public string Title { get; set; } = "Test";
         public TestViewModel()
         {
             _eventAggregator = IoC.Get<EventAggregator>();
@@ -24,7 +25,6 @@ namespace XCMDEMO.ViewModels
             Person.LastName = "LastName";
         }
 
-        public string DisplayName { get; set; } = "Test";
 
         public Task HandleAsync(PersonModel message, CancellationToken cancellationToken)
         {

@@ -38,7 +38,7 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <Label Grid.Column="1" Text="{Binding DisplayName}" Padding="10" FontSize="Medium"/>
+                                <Label Grid.Column="1" Text="{Binding Title}" Padding="10" FontSize="Medium"/>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>

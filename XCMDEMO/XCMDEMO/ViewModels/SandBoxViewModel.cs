@@ -5,11 +5,12 @@ namespace XCMDEMO.ViewModels
 {
     public class SandBoxViewModel : Screen, IChildViewModel
     {
+        public string Title { get; set; } = "SandBox";
+
         public SandBoxViewModel()
         {
         }
 
-        public string DisplayName { get; set; } = "SandBox";
 
         public void ButtonClick(object sender)
         {
