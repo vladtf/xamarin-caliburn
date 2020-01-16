@@ -47,6 +47,7 @@
                         <!--
                         <cm:Parameter Value="{Binding Source={RelativeSource Mode=Self}}" />
                         -->
+                        <cm:Parameter Value="$sender"/>
                     </cm:ActionMessage>
                 </EventTrigger>
             </Button.Triggers>
