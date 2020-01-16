@@ -1,31 +1,44 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.ChatView"
-             BackgroundColor="#2B5278"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms"
-             xmlns:vm="clr-namespace:XCMDEMO.ViewModels">
+             xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
+             BackgroundColor="#2B5278">
 
-    <ContentView.BindingContext>
+    <d:ContentView.BindingContext>
         <vm:ChatViewModel/>
-    </ContentView.BindingContext>
-    
-  <ContentView.Content>
-        <StackLayout>
+    </d:ContentView.BindingContext>
+
+    <ContentView.Content>
+        <StackLayout Padding="0,10,0,0">
             <!-- Messages ListView-->
             <ListView ItemsSource="{Binding Messages}" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="10" Padding="0,0,5,0">
-                                <BoxView BackgroundColor="#17212B" CornerRadius="5"/>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="👤" Padding="5,0,0,0" Margin="5,0" TextColor="#2B5278"/>
-                                    <Label Text="{Binding}" TextColor="White"/>
-                                </StackLayout>
+                            <Grid Margin="5" Padding="0,0,10,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="auto"/>
+                                </Grid.RowDefinitions>
+                                
+                                 <BoxView BackgroundColor="#17212B" CornerRadius="5" />
+                                <Grid VerticalOptions="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label Text="👤" Padding="5,0,5,0" Margin="5,0" TextColor="#2B5278"
+                                           VerticalOptions="Center"/>
+                                    <Label Grid.Column="1" Text="{Binding}" TextColor="White" 
+                                           Padding="2" VerticalOptions="Center" />
+                                </Grid>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -33,28 +46,30 @@
             </ListView>
 
             <!-- Enter Message Bar -->
-            <StackLayout VerticalOptions="EndAndExpand">
+            <StackLayout VerticalOptions="EndAndExpand" MinimumHeightRequest="50">
                 <Grid BackgroundColor="#17212B">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="0"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="0" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="5" />
                     </Grid.ColumnDefinitions>
 
-                    <Button Grid.Column="1" Text="💬" TextColor="White" 
-                            Margin="5,0" BackgroundColor="#17212B"/>
-                    <Entry Grid.Column="2" Placeholder="Message" 
-                           TextColor="White"
-                       PlaceholderColor="LightSlateGray"
-                           HorizontalOptions="FillAndExpand"/>
-                    <Button Grid.Column="3" Text="➤" TextColor="White" 
+                    <Button Grid.Column="1" Text="💬" TextColor="White"
+                            Margin="5,0" BackgroundColor="#17212B" />
+                    <Entry Grid.Column="2" Placeholder="Message"
+                           TextColor="White" Text="{Binding CurrentMessage, Mode=TwoWay}"
+                           PlaceholderColor="LightSlateGray"
+                           HorizontalOptions="FillAndExpand"
+                           cm:Message.Attach="[Event Completed]=[SendMessage]"/>
+                    <Button Grid.Column="3" Text="➤" TextColor="White"
                             HorizontalOptions="EndAndExpand"
                             BackgroundColor="#17212B"
-                            WidthRequest="50"/>
+                            WidthRequest="50"
+                            cm:Message.Attach="SendMessage" />
                 </Grid>
             </StackLayout>
         </StackLayout>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>
