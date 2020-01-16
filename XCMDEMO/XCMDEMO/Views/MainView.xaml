@@ -28,7 +28,7 @@
                 </Grid.RowDefinitions>
                 
                 <!-- Row 1 -->
-                <Grid Grid.Row="0" BackgroundColor="LightBlue">
+                <Grid Grid.Row="0" BackgroundColor="Blue" Opacity="0.5">
                     <Label Grid.Row="0" Text="⌂    Master" FontSize="Large" TextColor="White"
                        VerticalOptions="Center" HorizontalOptions="Center"/>
                 </Grid>
@@ -43,6 +43,8 @@
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+                <BoxView WidthRequest="1"/>
             </Grid>
         </ContentPage>
     </MasterDetailPage.Master>

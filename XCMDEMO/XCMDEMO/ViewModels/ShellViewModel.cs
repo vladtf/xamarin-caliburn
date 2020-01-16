@@ -16,6 +16,7 @@ namespace XCMDEMO.ViewModels
 
             //Items.Add(sand);
             //Items.Add(work);
+
             IEnumerable<IChildViewModel> children = IoC.Get < IEnumerable<IChildViewModel>>();
 
             Items.AddRange(children);

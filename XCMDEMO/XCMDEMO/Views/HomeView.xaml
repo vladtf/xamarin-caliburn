@@ -21,17 +21,16 @@
 
             <ListView ItemsSource="{Binding People}" Margin="5"
                       SelectedItem="{Binding SelectedPerson}"
-                      cm:Message.Attach="[Event ItemSelected] = [Action ItemSelected($selecteditem)]">
+                      cm:Message.Attach="ItemSelected($selecteditem)">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell >
-                            <Grid  BackgroundColor="LightBlue" Margin="5">
+                        <ViewCell>
+                            <Grid  Margin="5">
                                 <Label Text="{Binding FullName}"
                                        HorizontalOptions="CenterAndExpand" 
                                        VerticalOptions="Center"
                                        TextColor="White"/>
                             </Grid>
-                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

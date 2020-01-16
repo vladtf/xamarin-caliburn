@@ -8,7 +8,6 @@ namespace XCMDEMO
     {
         public App(ShellViewModel shell)
         {
-            InitializeComponent();
 
             MessageBinder.SpecialValues.Add("$selecteditem", c =>
             {

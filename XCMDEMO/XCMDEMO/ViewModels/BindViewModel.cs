@@ -64,8 +64,7 @@ namespace XCMDEMO.ViewModels
         //called from a 'start' button click
         private async void StartTimer()
         {
-
-
+           
         }
         //called from a 'cancel' button
         private void Cancel()
