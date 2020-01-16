@@ -4,15 +4,32 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="XCMDEMO.Views.ChatView">
+             x:Class="XCMDEMO.Views.ChatView"
+             BackgroundColor="#2B5278">
   <ContentView.Content>
         <StackLayout>
-            <Grid VerticalOptions="EndAndExpand">
-                <BoxView BackgroundColor="#17212B"/>
-                <Entry Placeholder="Message" TextColor="White"
-                       PlaceholderColor="LightSlateGray"/>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Grid BackgroundColor="#17212B">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5"/>
+                    </Grid.ColumnDefinitions>
 
-            </Grid>
+                    <Button Grid.Column="1" Text="💬" TextColor="White" 
+                            Margin="5,0" BackgroundColor="#17212B"/>
+                    <Entry Grid.Column="2" Placeholder="Message" 
+                           TextColor="White"
+                       PlaceholderColor="LightSlateGray"
+                           HorizontalOptions="FillAndExpand"/>
+                    <Button Grid.Column="3" Text="➤" TextColor="White" 
+                            HorizontalOptions="EndAndExpand"
+                            BackgroundColor="#17212B"
+                            WidthRequest="50"/>
+                </Grid>
+            </StackLayout>
         </StackLayout>
   </ContentView.Content>
 </ContentView>
