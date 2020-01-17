@@ -40,7 +40,7 @@
             </ListView>
 
             <!-- Enter Message Bar -->
-            <StackLayout VerticalOptions="EndAndExpand" MinimumHeightRequest="50">
+            <StackLayout VerticalOptions="EndAndExpand" MinimumHeightRequest="60">
                 <Grid BackgroundColor="#17212B">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0" />

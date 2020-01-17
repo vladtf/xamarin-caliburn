@@ -14,7 +14,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Text="{Binding Person.FullName}" FontSize="Large"/>
+            <Label Text="{Binding Person.FullName}" FontSize="Large" HorizontalOptions="Center"
+                   d:Text="Full Name"/>
             <Button Grid.Row="1" Text="Work" BackgroundColor="LightBlue"
                     cm:Message.Attach="[Event Clicked] = [Action ToWork]"/>
         </Grid>

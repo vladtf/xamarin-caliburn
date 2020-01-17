@@ -11,7 +11,14 @@
     <ContentView.Resources>
         <conv:NotBoolConverter x:Key="NotBoolConverter" />
         <conv:YesNotBooleanConverter x:Key="YesNotBooleanConverter" />
+
+        <Array Type="{x:Type x:String}" x:Key="People">
+            <x:String>John Smith</x:String>
+            <x:String>Will Johnson</x:String>
+            <x:String>Joseph Light</x:String>
+        </Array>
     </ContentView.Resources>
+
     <ContentView.Content>
         <Grid>
             <Grid.RowDefinitions>
@@ -19,15 +26,19 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <ListView ItemsSource="{Binding People}" Margin="5"
+            <ListView Margin="5,20,5,5"  
                       SelectedItem="{Binding SelectedPerson}"
-                      cm:Message.Attach="ItemSelected($selecteditem)">
+                      ItemsSource="{Binding People}"
+                      d:ItemsSource="{Binding Source={StaticResource Key=People}}"
+                      cm:Message.Attach="ItemSelected($selecteditem)"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid  Margin="5">
-                                <Label Text="{Binding FullName}"
-                                       HorizontalOptions="CenterAndExpand" 
+                            <Grid  Margin="5" BackgroundColor="LightBlue" Padding="5">
+                                <Label Text="{Binding FullName}" FontSize="Large"
+                                       d:Text="{Binding .}"
+                                       HorizontalOptions="CenterAndExpand"
                                        VerticalOptions="Center"
                                        TextColor="White"/>
                             </Grid>
