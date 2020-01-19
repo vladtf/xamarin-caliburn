@@ -1,24 +1,19 @@
 ﻿using Caliburn.Micro;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using XCMDEMO.NavigateToMessageEvent;
 
 namespace XCMDEMO.ViewModels
 {
-    public class MainViewModel : Conductor<object>.Collection.OneActive,IHandle<NavigateToMessage>
+    public class MainViewModel : Conductor<object>.Collection.OneActive, IHandle<NavigateToMessage>
     {
         public ShellViewModel ShellView;
 
         private bool masterListAvailable;
 
-
         public MainViewModel()
         {
-
             MasterListAvailable = true;
 
             //ShellView = IoC.Get<ShellViewModel>();
@@ -50,12 +45,11 @@ namespace XCMDEMO.ViewModels
             }
         }
 
-
         public Task HandleAsync(NavigateToMessage message, CancellationToken cancellationToken)
         {
             foreach (var item in Items)
             {
-                //Check if type of item ends with published enum 
+                //Check if type of item ends with published enum
                 if (item.GetType().ToString().EndsWith(message.NavigateToEnum.ToString()))
                 {
                     ActivateItem(item);

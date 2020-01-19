@@ -1,8 +1,4 @@
 ﻿using Caliburn.Micro;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Xamarin.Forms;
 
 namespace XCMDEMO.ViewModels
 {
@@ -11,6 +7,7 @@ namespace XCMDEMO.ViewModels
         public string Title { get; set; } = "Chat";
         private BindableCollection<string> _messages;
         private string _curMessage;
+
         public ChatViewModel()
         {
             Messages = new BindableCollection<string>
@@ -21,8 +18,6 @@ namespace XCMDEMO.ViewModels
 
             CurrentMessage = "";
         }
-
-
 
         public string CurrentMessage
         {
@@ -41,6 +36,5 @@ namespace XCMDEMO.ViewModels
             Messages.Add(CurrentMessage);
             CurrentMessage = "";
         }
-
     }
 }

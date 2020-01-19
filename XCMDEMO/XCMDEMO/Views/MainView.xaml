@@ -13,9 +13,12 @@
                   d:IsPresented="True">
 
     <MasterDetailPage.Resources>
-        <conv:TitleConverter x:Key="TitleConverter"/>
+        <conv:TitleConverter x:Key="TitleConverter" />
     </MasterDetailPage.Resources>
 
+    <MasterDetailPage.BindingContext>
+        <vm:MainViewModel/>
+    </MasterDetailPage.BindingContext>
     <d:MasterDetailPage.Resources>
         <Array x:Key="ItemsList" Type="{x:Type x:String}">
             <x:String>First Item</x:String>
@@ -28,24 +31,24 @@
         <ContentPage Title="Master" BackgroundColor="#2B5278">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="9*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="9*" />
                 </Grid.RowDefinitions>
-                
+
                 <!-- Title Bar -->
-                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
-                             BackgroundColor="#1F2936"/>
+                <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                             BackgroundColor="#1F2936" />
                 <StackLayout Orientation="Horizontal"
                              HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-                    
-                    <Label Text="⌂" FontSize="Title" TextColor="White"/>
-                    <Label Grid.Column="1" Text="Master" 
-                           FontSize="Title" TextColor="White"/>
+
+                    <Label Text="⌂" FontSize="Title" TextColor="White" />
+                    <Label Grid.Column="1" Text="Master"
+                           FontSize="Title" TextColor="White" />
                 </StackLayout>
-                
+
                 <!-- Items List -->
-                <ListView Grid.Row="1" 
-                          ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}" 
+                <ListView Grid.Row="1"
+                          ItemsSource="{Binding Items}" SelectedItem="{Binding ActiveItem, Mode=TwoWay}"
                           d:ItemsSource="{Binding Source={StaticResource Key=ItemsList}}"
                           HasUnevenRows="True">
                     <ListView.ItemTemplate>
@@ -53,27 +56,26 @@
                             <ViewCell>
                                 <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="auto"/>
-                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-                                    
+
                                     <Label Text="•" FontSize="40" TextColor="LightBlue"
-                                           VerticalOptions="Center" Margin="10,0,0,0"/>
+                                           VerticalOptions="Center" Margin="10,0,0,0" />
                                     <Label Grid.Column="1" Margin="10,10,5,0" VerticalOptions="Center"
-                                       FontSize="Title" TextColor="White" 
-                                       Text="{Binding Title}" d:Text="{Binding .}"/>
+                                       FontSize="Title" TextColor="White"
+                                       Text="{Binding Title}" d:Text="{Binding .}" />
                                 </Grid>
-                                
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
 
-                <BoxView WidthRequest="1"/>
+                <BoxView WidthRequest="1" />
             </Grid>
         </ContentPage>
     </MasterDetailPage.Master>
-    
+
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
@@ -84,7 +86,7 @@
 
     <d:MasterDetailPage.Detail>
         <ContentPage>
-            <views:ChatView/>
+            <views:ChatView />
         </ContentPage>
     </d:MasterDetailPage.Detail>
 </MasterDetailPage>

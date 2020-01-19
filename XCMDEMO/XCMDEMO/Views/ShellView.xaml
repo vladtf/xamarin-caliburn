@@ -13,7 +13,7 @@
             Title="Shell View">
 
     <TabbedPage.BindingContext>
-        <vm:ShellViewModel/>
+        <vm:ShellViewModel />
     </TabbedPage.BindingContext>
 
     <TabbedPage.ItemTemplate>

@@ -19,7 +19,6 @@ namespace XCMDEMO.ViewModels
             People.Add(new PersonModel { FirstName = "Joseph", LastName = "Smith" });
 
             SelectedPerson = People.FirstOrDefault();
-
         }
 
         public BindableCollection<PersonModel> People
@@ -28,8 +27,6 @@ namespace XCMDEMO.ViewModels
             set { Set(ref _people, value); }
         }
 
-
-
         private PersonModel _selectedPerson;
 
         public PersonModel SelectedPerson
@@ -37,7 +34,6 @@ namespace XCMDEMO.ViewModels
             get { return _selectedPerson; }
             set { Set(ref _selectedPerson, value); }
         }
-
 
         public void ItemSelected(object parameter)
         {

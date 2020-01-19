@@ -1,10 +1,7 @@
 ﻿using Caliburn.Micro;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Xamarin.Forms;
 
 namespace XCMDEMO.ViewModels
 {
@@ -19,7 +16,7 @@ namespace XCMDEMO.ViewModels
             try
             {
                 //this runs your asynchronous method
-                //you must check periodically to see 
+                //you must check periodically to see
                 //if cancellation has been requested
                 Task.Run(() =>
                 {
@@ -40,7 +37,6 @@ namespace XCMDEMO.ViewModels
             }
         }
 
-
         private int _timer;
 
         public int Timer
@@ -48,8 +44,6 @@ namespace XCMDEMO.ViewModels
             get { return _timer; }
             set { Set(ref _timer, value); }
         }
-
-
 
         private bool _canTime = true;
 
@@ -59,9 +53,8 @@ namespace XCMDEMO.ViewModels
             set { Set(ref _canTime, value); }
         }
 
-
         private CancellationTokenSource cts;
-        
+
         //called from a 'start' button click
         private void StartTimer()
         {

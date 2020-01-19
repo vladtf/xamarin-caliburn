@@ -1,5 +1,4 @@
 ﻿using Caliburn.Micro;
-using System;
 using XCMDEMO.NavigateToMessageEvent;
 
 namespace XCMDEMO.ViewModels
@@ -7,6 +6,7 @@ namespace XCMDEMO.ViewModels
     public class WorkViewModel : Screen, IChildViewModel
     {
         public string Title { get; set; } = "Work";
+
         public WorkViewModel()
         {
         }

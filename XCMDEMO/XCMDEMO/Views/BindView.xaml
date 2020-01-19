@@ -21,15 +21,18 @@
                 <CheckBox Grid.Row="1" IsChecked="{Binding CanTime}" />
             </StackLayout>
 
+            <Image Source="Twitter.png"
+                   HeightRequest="100" WidthRequest="100" />
             <!-- Row 2 -->
             <Button Text="Start"
                     cm:Message.Attach="StartTimer">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="BackgroundColor" Value="Blue"/>
+                        <Setter Property="BackgroundColor" Value="Blue" />
                         <Style.Triggers>
                             <Trigger TargetType="Button" Property="IsPressed" Value="True">
-                                <Setter Property="BackgroundColor" Value="Red"/>
+                                <Setter Property="BackgroundColor" Value="Red" />
+                                <Setter Property="Rotation" Value="90" />
                             </Trigger>
                         </Style.Triggers>
                     </Style>

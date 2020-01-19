@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace XCMDEMO.NavigateToMessageEvent
+﻿namespace XCMDEMO.NavigateToMessageEvent
 {
     public class NavigateToMessage
     {
@@ -10,8 +6,10 @@ namespace XCMDEMO.NavigateToMessageEvent
         {
             NavigateToEnum = navigateTo;
         }
-        public NavigateToEnum NavigateToEnum { get;}
+
+        public NavigateToEnum NavigateToEnum { get; }
     }
+
     public enum NavigateToEnum
     {
         HomeViewModel,

@@ -8,7 +8,6 @@ namespace XCMDEMO
     {
         public App(ShellViewModel shell)
         {
-
             MessageBinder.SpecialValues.Add("$selecteditem", c =>
             {
                 var listView = c.Source as ListView;
@@ -20,7 +19,9 @@ namespace XCMDEMO
                 return c?.Source;
             });
 
-            DisplayRootViewFor<MainViewModel>();
+            //DisplayRootViewFor<MainViewModel>();
+
+            MainPage = new NavigationPage(new SplashPage());
         }
     }
 }

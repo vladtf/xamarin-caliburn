@@ -11,7 +11,6 @@ namespace XCMDEMO.ViewModels
         {
         }
 
-
         public void ButtonClick(object sender)
         {
             if (sender?.GetType() == typeof(Button))

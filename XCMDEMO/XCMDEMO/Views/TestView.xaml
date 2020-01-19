@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -7,17 +7,17 @@
              x:Class="XCMDEMO.Views.TestView"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
-  <ContentView.Content>
+    <ContentView.Content>
         <Grid VerticalOptions="Center" Padding="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
             <Label Text="{Binding Person.FullName}" FontSize="Large" HorizontalOptions="Center"
-                   d:Text="Full Name"/>
+                   d:Text="Full Name" />
             <Button Grid.Row="1" Text="Work" BackgroundColor="LightBlue"
-                    cm:Message.Attach="[Event Clicked] = [Action ToWork]"/>
+                    cm:Message.Attach="[Event Clicked] = [Action ToWork]" />
         </Grid>
-  </ContentView.Content>
+    </ContentView.Content>
 </ContentView>

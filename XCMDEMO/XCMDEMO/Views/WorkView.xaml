@@ -9,9 +9,9 @@
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
     <ContentView.BindingContext>
-        <vm:WorkViewModel/>
+        <vm:WorkViewModel />
     </ContentView.BindingContext>
-    
+
     <ContentView.Content>
         <StackLayout HorizontalOptions="Center">
 
@@ -23,13 +23,13 @@
 
             <Grid VerticalOptions="End" HorizontalOptions="Center">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
                 <Button Grid.Row="1" Text="🏠" WidthRequest="50" Margin="5"
                         BackgroundColor="LightBlue" TextColor="White"
-                        cm:Message.Attach="[Event Clicked] = [Action NavigateToHome]"/>
+                        cm:Message.Attach="[Event Clicked] = [Action NavigateToHome]" />
             </Grid>
         </StackLayout>
     </ContentView.Content>
