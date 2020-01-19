@@ -73,6 +73,7 @@
             </Grid>
         </ContentPage>
     </MasterDetailPage.Master>
+    
     <MasterDetailPage.Detail>
         <NavigationPage>
             <x:Arguments>
@@ -80,4 +81,10 @@
             </x:Arguments>
         </NavigationPage>
     </MasterDetailPage.Detail>
+
+    <d:MasterDetailPage.Detail>
+        <ContentPage>
+            <views:ChatView/>
+        </ContentPage>
+    </d:MasterDetailPage.Detail>
 </MasterDetailPage>

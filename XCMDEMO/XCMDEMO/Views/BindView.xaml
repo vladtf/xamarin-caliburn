@@ -23,11 +23,23 @@
 
             <!-- Row 2 -->
             <Button Text="Start"
-                    cm:Message.Attach="StartTimer"/>
+                    cm:Message.Attach="StartTimer">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="BackgroundColor" Value="Blue"/>
+                        <Style.Triggers>
+                            <Trigger TargetType="Button" Property="IsPressed" Value="True">
+                                <Setter Property="BackgroundColor" Value="Red"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <!-- Row 3 -->
             <Button Text="Cancel"
-                    cm:Message.Attach="Cancel"/>
+                    cm:Message.Attach="Cancel">
+            </Button>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
