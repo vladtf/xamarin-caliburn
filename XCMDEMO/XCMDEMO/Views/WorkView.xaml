@@ -15,6 +15,16 @@
 
     <ContentView.Resources>
         <conv:DebugConverter x:Key="DebugConverter"/>
+
+        <Style TargetType="Entry" x:Key="EntryStyle">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Source={x:Reference txt}, Path=Text}"
+                                             Value="Open" TargetType="Entry">
+                    <Setter Property="IsEnabled" Value="True"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        
     </ContentView.Resources>
 
     <ContentView.Content>
@@ -22,18 +32,8 @@
 
             <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
                 <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
-                <Entry Placeholder="to display here" Text="{Binding Text}"
+                <Entry Placeholder="to display here" Text="{Binding Text}" Style="{StaticResource EntryStyle}"
                        IsEnabled="False">
-                    <Entry.Style>
-                        <Style TargetType="Entry">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding Source={x:Reference txt}, Path=Text}"
-                                             Value="Open" TargetType="Entry">
-                                    <Setter Property="IsEnabled" Value="True"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Entry.Style>
                 </Entry>
                 <Label BindingContext="{Reference txt}" Text="{Binding Text}" d:Text="message" />
             </StackLayout>

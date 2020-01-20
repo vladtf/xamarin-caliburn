@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.BindView"
              xmlns:conv="clr-namespace:XCMDEMO.Converters"
+             xmlns:action="clr-namespace:XCMDEMO.TriggersAction"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
@@ -41,16 +42,7 @@
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
-                -->
-                
-                <Image.Triggers>
-                    <DataTrigger TargetType="Button"
-                                 Binding="{Binding Source={x:Reference StartButton}, Converter={StaticResource DebugConverter} }"
-                                 Value="True">
-                        <Setter Property="Opacity" Value="0.1"/>
-                    </DataTrigger>
-                </Image.Triggers>
-                
+                -->      
                 
             </Image>
             <!-- Row 2 -->
@@ -72,6 +64,11 @@
             <!-- Row 3 -->
             <Button Text="Cancel"
                     cm:Message.Attach="Cancel">
+                <Button.Triggers>
+                    <EventTrigger Event="Clicked">
+                        <action:ExpandButtonTriggerAction/>
+                    </EventTrigger>
+                </Button.Triggers>
             </Button>
         </StackLayout>
     </ContentView.Content>

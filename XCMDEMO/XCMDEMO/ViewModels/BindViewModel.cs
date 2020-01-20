@@ -2,6 +2,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace XCMDEMO.ViewModels
 {
@@ -11,30 +12,11 @@ namespace XCMDEMO.ViewModels
 
         public BindViewModel()
         {
-            cts = new CancellationTokenSource();
-            CancellationToken token = cts.Token;
-            try
-            {
-                //this runs your asynchronous method
-                //you must check periodically to see
-                //if cancellation has been requested
-                Task.Run(() =>
-                {
-                    while (true)
-                    {
-                        Timer++;
-
-                        Thread.Sleep(1000);
-                        //check to see if operation is cancelled
-                        //and throw exception if it is
-                        token.ThrowIfCancellationRequested();
-                    }
-                }, token);
-            }
-            catch (OperationCanceledException)
-            {
-                CanTime = false;
-            }
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+             {
+                 Timer++;
+                 return CanTime;
+             });
         }
 
         private int _timer;
@@ -53,18 +35,21 @@ namespace XCMDEMO.ViewModels
             set { Set(ref _canTime, value); }
         }
 
-        private CancellationTokenSource cts;
-
         //called from a 'start' button click
         private void StartTimer()
         {
-            App.Current.MainPage.DisplayAlert("error", "Not Implemnted.", "Ok");
+            //App.Current.MainPage.DisplayAlert("error", "Not Implemnted.", "Ok");
+
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Timer++;
+                return CanTime;
+            });
         }
 
         //called from a 'cancel' button
         private void Cancel()
         {
-            cts.Cancel();
         }
     }
 }

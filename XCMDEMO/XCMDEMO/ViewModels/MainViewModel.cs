@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using XCMDEMO.NavigateToMessageEvent;
@@ -23,7 +24,7 @@ namespace XCMDEMO.ViewModels
 
             Items.AddRange(children);
 
-            ActivateItem(IoC.Get<ChatViewModel>());
+            ActivateItem(children.First());
 
             //Subscribe on Eventaggregator
             EventAggregator eventAggregator = IoC.Get<EventAggregator>();
