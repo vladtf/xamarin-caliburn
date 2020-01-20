@@ -5,12 +5,18 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.BindView"
+             xmlns:conv="clr-namespace:XCMDEMO.Converters"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
     <ContentView.BindingContext>
         <vm:BindViewModel />
     </ContentView.BindingContext>
+
+    <ContentView.Resources>
+        <conv:DebugConverter x:Key="DebugConverter"/>
+    </ContentView.Resources>
+    
     <ContentView.Content>
         <StackLayout>
             <!-- Row 1 -->
@@ -22,16 +28,40 @@
             </StackLayout>
 
             <Image Source="Twitter.png"
-                   HeightRequest="100" WidthRequest="100" />
+                   HeightRequest="100" WidthRequest="100">
+                <!--
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger TargetType="Button"
+                                 Binding="{Binding Source={x:Reference StartButton}, Converter={StaticResource DebugConverter} }"
+                                 Value="True">
+                                <Setter Property="Opacity" Value="0.5"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+                -->
+                
+                <Image.Triggers>
+                    <DataTrigger TargetType="Button"
+                                 Binding="{Binding Source={x:Reference StartButton}, Converter={StaticResource DebugConverter} }"
+                                 Value="True">
+                        <Setter Property="Opacity" Value="0.1"/>
+                    </DataTrigger>
+                </Image.Triggers>
+                
+                
+            </Image>
             <!-- Row 2 -->
-            <Button Text="Start"
+            <Button Text="Start" x:Name="StartButton"
                     cm:Message.Attach="StartTimer">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="BackgroundColor" Value="Blue" />
                         <Style.Triggers>
                             <Trigger TargetType="Button" Property="IsPressed" Value="True">
-                                <Setter Property="BackgroundColor" Value="Red" />
+                                <Setter Property="BackgroundColor" Value="Red"/>
                                 <Setter Property="Rotation" Value="90" />
                             </Trigger>
                         </Style.Triggers>

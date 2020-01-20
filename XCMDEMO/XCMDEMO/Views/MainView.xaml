@@ -77,7 +77,7 @@
     </MasterDetailPage.Master>
 
     <MasterDetailPage.Detail>
-        <NavigationPage>
+        <NavigationPage BarTextColor="White" BarBackgroundColor="#1F2936">
             <x:Arguments>
                 <ContentPage cm:View.Model="{Binding ActiveItem}" Title="{Binding ActiveItem,Converter={StaticResource TitleConverter}}" />
             </x:Arguments>

@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="XCMDEMO.Views.WorkView"
+             xmlns:conv="clr-namespace:XCMDEMO.Converters"
              xmlns:vm="clr-namespace:XCMDEMO.ViewModels"
              xmlns:cm="clr-namespace:Caliburn.Micro.Xamarin.Forms;assembly=Caliburn.Micro.Xamarin.Forms">
 
@@ -12,13 +13,29 @@
         <vm:WorkViewModel />
     </ContentView.BindingContext>
 
+    <ContentView.Resources>
+        <conv:DebugConverter x:Key="DebugConverter"/>
+    </ContentView.Resources>
+
     <ContentView.Content>
         <StackLayout HorizontalOptions="Center">
 
             <StackLayout VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
                 <Entry Placeholder="Type here !" Text="{Binding Text}" x:Name="txt" />
-                <Entry Placeholder="to display here" Text="{Binding Text}" />
-                <Label BindingContext="{Reference txt}" Text="{Binding Text}" />
+                <Entry Placeholder="to display here" Text="{Binding Text}"
+                       IsEnabled="False">
+                    <Entry.Style>
+                        <Style TargetType="Entry">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Source={x:Reference txt}, Path=Text}"
+                                             Value="Open" TargetType="Entry">
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Entry.Style>
+                </Entry>
+                <Label BindingContext="{Reference txt}" Text="{Binding Text}" d:Text="message" />
             </StackLayout>
 
             <Grid VerticalOptions="End" HorizontalOptions="Center">

@@ -34,10 +34,7 @@ namespace XCMDEMO
 
         protected override async void OnAppearing()
         {
-
-            CancellationTokenSource cts = new CancellationTokenSource();
-            CancellationToken token = cts.Token;
-
+            
             base.OnAppearing();
 
             await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
@@ -46,8 +43,6 @@ namespace XCMDEMO
             await splashImage.ScaleTo(0, 1200, Easing.Linear);
 
             Application.Current.MainPage = new MainView(); //After loading  MainPage it gets Navigated to our new Page
-
-            cts.Cancel();
 
         }
     }
