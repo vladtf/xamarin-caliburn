@@ -13,7 +13,8 @@ namespace XCMDEMO.ViewModels
             Messages = new BindableCollection<string>
             {
                 "Hello World", "New message", "Type something",
-                "This is a looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong text"
+                "This is a loooooooooooooooooooooooooooooooooooooooooooooooooooooooo" +
+                "ooooooooooooooooooooooooooooooooooooooong text"
             };
 
             CurrentMessage = "";

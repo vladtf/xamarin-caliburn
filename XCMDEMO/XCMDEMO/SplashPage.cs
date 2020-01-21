@@ -34,6 +34,7 @@ namespace XCMDEMO
 
         protected override async void OnAppearing()
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
             
             base.OnAppearing();
 
@@ -43,6 +44,12 @@ namespace XCMDEMO
             await splashImage.ScaleTo(0, 1200, Easing.Linear);
 
             Application.Current.MainPage = new MainView(); //After loading  MainPage it gets Navigated to our new Page
+
+            watch.Stop();
+
+            var elapsedMs = watch.ElapsedMilliseconds;
+
+            await DisplayAlert("Elapsed time till starting", elapsedMs.ToString(), "Ok");
 
         }
     }

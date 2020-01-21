@@ -1,8 +1,11 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Xamarin.Forms;
 
 namespace XCMDEMO.TriggersAction
 {
-    public class ExpandButtonTriggerAction : TriggerAction<Button>
+    public class BindViewTriggerAction : TriggerAction<Button>
     {
         protected async override void Invoke(Button button)
         {
@@ -26,5 +29,4 @@ namespace XCMDEMO.TriggersAction
             button.BackgroundColor = initButton;
         }
     }
-
 }

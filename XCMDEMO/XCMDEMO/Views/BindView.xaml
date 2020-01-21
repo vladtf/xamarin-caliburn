@@ -17,6 +17,21 @@
     <ContentView.Resources>
         <conv:DebugConverter x:Key="DebugConverter"/>
     </ContentView.Resources>
+
+    <!--
+    <ContentView.Style>
+        <Style TargetType="ContentView">
+            <Style.Triggers>
+                <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference CancelButton},Path=IsPressed}"
+                             Value="True">
+                    <DataTrigger.EnterActions>
+                        <action:BindViewTriggerAction/>
+                    </DataTrigger.EnterActions>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </ContentView.Style>
+    -->
     
     <ContentView.Content>
         <StackLayout>
@@ -62,7 +77,7 @@
             </Button>
 
             <!-- Row 3 -->
-            <Button Text="Cancel"
+            <Button Text="Cancel" x:Name="CancelButton"
                     cm:Message.Attach="Cancel">
                 <Button.Triggers>
                     <EventTrigger Event="Clicked">
