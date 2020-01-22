@@ -1,6 +1,4 @@
-﻿using Caliburn.Micro.Xamarin.Forms;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 using XCMDEMO.Views;
 
@@ -8,7 +6,7 @@ namespace XCMDEMO
 {
     public class SplashPage : ContentPage
     {
-        private Image splashImage; 
+        private Image splashImage;
 
         public SplashPage()
         {
@@ -35,22 +33,29 @@ namespace XCMDEMO
         protected override async void OnAppearing()
         {
             var watch = System.Diagnostics.Stopwatch.StartNew();
-            
+
             base.OnAppearing();
 
-            await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
+            MainView main = null;
+            var task = Task.Run(() => main = new MainView());
 
-            await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
-            await splashImage.ScaleTo(0, 1200, Easing.Linear);
+            await splashImage.ScaleTo(1);
 
-            Application.Current.MainPage = new MainView(); //After loading  MainPage it gets Navigated to our new Page
+            //Task.Run(async () =>
+            //{
+            //    await splashImage.ScaleTo(1, 2000); //Time-consuming processes such as initialization
+            //    await splashImage.ScaleTo(0.9, 1500, Easing.Linear);
+            //    await splashImage.ScaleTo(0, 1200, Easing.Linear);
+            //});
+
+            await Task.Run(()=>task.Wait());
+            Application.Current.MainPage = main; //After loading  MainPage it gets Navigated to our new Page
 
             watch.Stop();
 
             var elapsedMs = watch.ElapsedMilliseconds;
 
             await DisplayAlert("Elapsed time till starting", elapsedMs.ToString(), "Ok");
-
         }
     }
 }
