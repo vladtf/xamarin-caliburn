@@ -48,7 +48,7 @@ namespace XCMDEMO
             //    await splashImage.ScaleTo(0, 1200, Easing.Linear);
             //});
 
-            await Task.Run(()=>task.Wait());
+            await Task.Run(() => task.Wait());
             Application.Current.MainPage = main; //After loading  MainPage it gets Navigated to our new Page
 
             watch.Stop();

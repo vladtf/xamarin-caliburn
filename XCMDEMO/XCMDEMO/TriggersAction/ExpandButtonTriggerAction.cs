@@ -26,5 +26,4 @@ namespace XCMDEMO.TriggersAction
             button.BackgroundColor = initButton;
         }
     }
-
 }

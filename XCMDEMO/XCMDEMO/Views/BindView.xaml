@@ -15,7 +15,7 @@
     </ContentView.BindingContext>
 
     <ContentView.Resources>
-        <conv:DebugConverter x:Key="DebugConverter"/>
+        <conv:DebugConverter x:Key="DebugConverter" />
     </ContentView.Resources>
 
     <!--
@@ -25,14 +25,14 @@
                 <DataTrigger TargetType="Button" Binding="{Binding Source={x:Reference CancelButton},Path=IsPressed}"
                              Value="True">
                     <DataTrigger.EnterActions>
-                        <action:BindViewTriggerAction/>
+                        <action:BindViewTriggerAction />
                     </DataTrigger.EnterActions>
                 </DataTrigger>
             </Style.Triggers>
         </Style>
     </ContentView.Style>
     -->
-    
+
     <ContentView.Content>
         <StackLayout>
             <!-- Row 1 -->
@@ -52,13 +52,12 @@
                             <DataTrigger TargetType="Button"
                                  Binding="{Binding Source={x:Reference StartButton}, Converter={StaticResource DebugConverter} }"
                                  Value="True">
-                                <Setter Property="Opacity" Value="0.5"/>
+                                <Setter Property="Opacity" Value="0.5" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
                 </Image.Style>
-                -->      
-                
+                -->
             </Image>
             <!-- Row 2 -->
             <Button Text="Start" x:Name="StartButton"
@@ -68,7 +67,7 @@
                         <Setter Property="BackgroundColor" Value="Blue" />
                         <Style.Triggers>
                             <Trigger TargetType="Button" Property="IsPressed" Value="True">
-                                <Setter Property="BackgroundColor" Value="Red"/>
+                                <Setter Property="BackgroundColor" Value="Red" />
                                 <Setter Property="Rotation" Value="90" />
                             </Trigger>
                         </Style.Triggers>
@@ -81,7 +80,7 @@
                     cm:Message.Attach="Cancel">
                 <Button.Triggers>
                     <EventTrigger Event="Clicked">
-                        <action:ExpandButtonTriggerAction/>
+                        <action:ExpandButtonTriggerAction />
                     </EventTrigger>
                 </Button.Triggers>
             </Button>

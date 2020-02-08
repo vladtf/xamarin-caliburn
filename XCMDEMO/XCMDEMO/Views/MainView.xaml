@@ -17,7 +17,7 @@
     </MasterDetailPage.Resources>
 
     <MasterDetailPage.BindingContext>
-        <vm:MainViewModel/>
+        <vm:MainViewModel />
     </MasterDetailPage.BindingContext>
     <d:MasterDetailPage.Resources>
         <Array x:Key="ItemsList" Type="{x:Type x:String}">

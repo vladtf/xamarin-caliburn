@@ -14,17 +14,16 @@
     </ContentView.BindingContext>
 
     <ContentView.Resources>
-        <conv:DebugConverter x:Key="DebugConverter"/>
+        <conv:DebugConverter x:Key="DebugConverter" />
 
         <Style TargetType="Entry" x:Key="EntryStyle">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Source={x:Reference txt}, Path=Text}"
                                              Value="Open" TargetType="Entry">
-                    <Setter Property="IsEnabled" Value="True"/>
+                    <Setter Property="IsEnabled" Value="True" />
                 </DataTrigger>
             </Style.Triggers>
         </Style>
-        
     </ContentView.Resources>
 
     <ContentView.Content>
