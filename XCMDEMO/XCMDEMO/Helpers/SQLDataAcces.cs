@@ -6,19 +6,24 @@ using XCMDEMO.Models;
 
 namespace XCMDEMO.Helpers
 {
-    internal class SQLDataAcces
+    public class SQLDataAcces
     {
-        public static IEnumerable<PersonModel> GetPeople()
+        public static string ConnectionString
         {
-            string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VTFData;" +
-                $"Integrated Security=True;Connect Timeout=30;Encrypt=False;" +
-                $"TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            get => @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=VTFData;" +
+                    "Integrated Security=True;Connect Timeout=30;Encrypt=False;" +
+                    "TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        }
 
-            SqlConnection data = new SqlConnection(connectionString);
+        public static IEnumerable<PersonModel> GetPeople(string connectionString)
+        {
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-            IEnumerable<PersonModel> result = data.Query<PersonModel>("Select * from dbo.Employees").ToList();
+            string cmdText = "Select * from dbo.Employees";
 
-            return result;
+            IEnumerable<PersonModel> output = sqlConnection.Query<PersonModel>(cmdText).ToList();
+
+            return output;
         }
     }
 }

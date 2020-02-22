@@ -29,7 +29,7 @@ namespace XCMDEMO.Droid
             base.Configure();
 
             ContainerBuilder builder = new ContainerBuilder();
-            builder.RegisterModule<XCMDEMO.Module>();
+            builder.RegisterModule<Module>();
 
             _container = builder.Build();
         }

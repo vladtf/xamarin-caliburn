@@ -15,6 +15,7 @@ namespace XCMDEMO.Views
         }
     }
 
+    // Converter class - need to refact
     public class YesNotBooleanConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

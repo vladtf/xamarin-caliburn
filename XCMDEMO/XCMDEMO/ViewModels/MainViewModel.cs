@@ -9,9 +9,9 @@ namespace XCMDEMO.ViewModels
 {
     public class MainViewModel : Conductor<object>.Collection.OneActive, IHandle<NavigateToMessage>
     {
-        public ShellViewModel ShellView;
-
         private bool masterListAvailable;
+
+        public ShellViewModel ShellView;
 
         public MainViewModel()
         {

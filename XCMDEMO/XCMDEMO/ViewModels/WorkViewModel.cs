@@ -5,14 +5,15 @@ namespace XCMDEMO.ViewModels
 {
     public class WorkViewModel : Screen, IChildViewModel
     {
+        private readonly EventAggregator _eventAggregator;
+        private string _text;
+
         public string Title { get; set; } = "Work";
 
         public WorkViewModel()
         {
+            _eventAggregator = (EventAggregator)IoC.Get<EventAggregator>();
         }
-
-        private string _text;
-        private readonly EventAggregator _eventAggregator = (EventAggregator)IoC.Get<EventAggregator>();
 
         public string Text
         {

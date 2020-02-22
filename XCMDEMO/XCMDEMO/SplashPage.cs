@@ -1,4 +1,4 @@
-﻿using System.Threading.Tasks;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using XCMDEMO.Views;
 
@@ -12,22 +12,24 @@ namespace XCMDEMO
         {
             NavigationPage.SetHasNavigationBar(this, false);
 
-            var sub = new AbsoluteLayout();
+            AbsoluteLayout layout = new AbsoluteLayout();
             splashImage = new Image
             {
                 Source = "dog_splash.png",
                 WidthRequest = 100,
                 HeightRequest = 100
             };
+
             AbsoluteLayout.SetLayoutFlags(splashImage,
                AbsoluteLayoutFlags.PositionProportional);
+
             AbsoluteLayout.SetLayoutBounds(splashImage,
              new Rectangle(0.5, 0.5, AbsoluteLayout.AutoSize, AbsoluteLayout.AutoSize));
 
-            sub.Children.Add(splashImage);
+            layout.Children.Add(splashImage);
 
             this.BackgroundColor = Color.FromHex("#429de3");
-            this.Content = sub;
+            this.Content = layout;
         }
 
         protected override async void OnAppearing()
@@ -56,6 +58,7 @@ namespace XCMDEMO
             var elapsedMs = watch.ElapsedMilliseconds;
 
             await DisplayAlert("Elapsed time till starting", elapsedMs.ToString(), "Ok");
+            Application.Current.MainPage = new MainView(); //After loading  MainPage it gets Navigated to our new Page
         }
     }
 }

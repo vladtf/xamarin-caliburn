@@ -9,6 +9,8 @@ namespace XCMDEMO.TriggersAction
             var initButton = button.BackgroundColor;
 
             button.BackgroundColor = Color.Red;
+
+            // Scaling button
             await button.ScaleTo(0.5, 50, Easing.CubicOut);
 
             await button.FadeTo(0, 1000, Easing.SinIn);

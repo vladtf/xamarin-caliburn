@@ -6,6 +6,8 @@ namespace XCMDEMO.ViewModels
 {
     public class BindViewModel : Screen, IChildViewModel
     {
+        private int _timer;
+        private bool _canTime = true;
         public string Title { get; set; } = "Bind Page";
 
         public BindViewModel()
@@ -17,15 +19,11 @@ namespace XCMDEMO.ViewModels
              });
         }
 
-        private int _timer;
-
         public int Timer
         {
             get { return _timer; }
             set { Set(ref _timer, value); }
         }
-
-        private bool _canTime = true;
 
         public bool CanTime
         {

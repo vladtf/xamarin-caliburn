@@ -6,19 +6,24 @@ namespace XCMDEMO.ViewModels
 {
     internal class HomeViewModel : Screen, IChildViewModel
     {
-        private BindableCollection<PersonModel> _people = new BindableCollection<PersonModel>();
-        private EventAggregator _eventAggregater = IoC.Get<EventAggregator>();
+        private readonly EventAggregator _eventAggregater;
+
+        private BindableCollection<PersonModel> _people;
+        private PersonModel _selectedPerson;
         public string Title { get; set; } = "Home";
 
         public HomeViewModel()
         {
             //var result = SQLDataAcces.GetPeople();
+            _people = new BindableCollection<PersonModel>();
 
             People.Add(new PersonModel { FirstName = "John", LastName = "Smith" });
             People.Add(new PersonModel { FirstName = "Will", LastName = "Johnson" });
             People.Add(new PersonModel { FirstName = "Joseph", LastName = "Smith" });
 
             SelectedPerson = People.FirstOrDefault();
+
+            _eventAggregater = IoC.Get<EventAggregator>();
         }
 
         public BindableCollection<PersonModel> People
@@ -26,8 +31,6 @@ namespace XCMDEMO.ViewModels
             get { return _people; }
             set { Set(ref _people, value); }
         }
-
-        private PersonModel _selectedPerson;
 
         public PersonModel SelectedPerson
         {

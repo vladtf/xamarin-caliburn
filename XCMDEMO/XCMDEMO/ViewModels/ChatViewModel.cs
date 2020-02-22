@@ -4,9 +4,10 @@ namespace XCMDEMO.ViewModels
 {
     public class ChatViewModel : Screen, IChildViewModel
     {
-        public string Title { get; set; } = "Chat";
         private BindableCollection<string> _messages;
         private string _curMessage;
+
+        public string Title { get; set; } = "Chat";
 
         public ChatViewModel()
         {
